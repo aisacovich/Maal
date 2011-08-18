@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+
+	<!--
+	<appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="TEMP"/>
+		<appender-ref ref="CONSOLE"/>
+	</appender>
+	-->
+
+	<renderer renderedClass="ar.uba.dc.maal.trace.log4j.Log4jEvent" renderingClass="ar.uba.dc.maal.trace.log4j.MaalEventRenderer"/>
+	
+	<appender name="SocketAppender" class="org.apache.log4j.net.SocketAppender">
+		<param name="RemoteHost" value="localhost"/>
+		<param name="Port" value="5555"/>
+		<param name="LocationInfo" value="true"/>
+	</appender>
+
+	<!-- Para hacer logueo remoto en tiempo real -->
+	<!--
+	<appender name="CHAINSAW" class="org.apache.log4j.net.SocketAppender">
+		<param name="RemoteHost" value="localhost"/>
+		<param name="Port" value="4445"/>
+		<param name="LocationInfo" value="true"/>
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %C{2}(%L) - %m%n"/>
+		</layout>
+	</appender>
+	-->
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}(%L) - %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="WEBPOS_LOG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="c:\\webpos\\log\\webpos.log"/>
+		<param name="MaxBackupIndex" value="2"/>
+		<param name="MaxFileSize" value="1MB"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			 <param name="ConversionPattern" value="%d %-5p [%t] %C{2}(%L) - %m%n"/>
+		</layout>
+	</appender>
+
+	<logger name="SocketAppenderLogger" additivity="false">
+		<appender-ref ref="SocketAppender"/>
+		<appender-ref ref="CONSOLE"/>
+	</logger>
+<!--
+	<category name="ar.com.datatransfer">
+		<priority value="DEBUG" />
+		<appender-ref ref="WEBPOS_LOG"/>
+		<appender-ref ref="CONSOLE"/>
+  	</category>
+-->
+	<category name="org.apache">
+		<priority value="WARN" />
+		<appender-ref ref="WEBPOS_LOG"/>
+		<appender-ref ref="CONSOLE"/>
+  	</category>
+
+	<root>
+		<priority value="debug"/>
+		<appender-ref ref="WEBPOS_LOG"/>
+		<appender-ref ref="CONSOLE"/>
+	</root>
+	
+</log4j:configuration>

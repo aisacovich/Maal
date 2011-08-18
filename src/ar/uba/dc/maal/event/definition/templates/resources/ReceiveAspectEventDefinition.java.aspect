@@ -1,0 +1,32 @@
+package @PACKAGE@;
+
+import ar.uba.dc.maal.net.Node;
+
+public aspect @MSG@ReceiveAspectEventDefinition extends AbstractReceiveAspectEventDefinition {
+
+	protected pointcut event(): call(@METHOD@);
+
+	protected String getMsg(){
+		return "@MSG@";
+	}
+
+	protected Node getNodeSender() {
+		try{
+			return (Node) Class.forName("@NODE@").newInstance();
+		} catch(Exception ex){
+			log.error(ex, ex);
+			throw new RuntimeException(ex);
+		}
+	}
+
+	protected Node getOwner(){
+		try{
+			return (Node) Class.forName("@OWNER@").newInstance();
+		} catch(Exception ex){
+			log.error(ex, ex);
+			throw new RuntimeException(ex);
+		}
+	}
+
+
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Hay que poner una URI válida <!DOCTYPE trace SYSTEM "trace.dtd"> -->
+<!-- 
+	Archivo de prueba en donde se definen los 
+	distntos eventos para una aplicación 
+-->
+
+<trace>
+	<event msg="pepe1">
+		<owner nodeRetreiverClassName="ar.com.dc.receiver.carlitos.Hamburgesas.Pepe1"/>
+		<method methodPatter="pepe1" package="pepe"/>
+	</event>
+	<event msg="pepe2">
+		<owner nodeRetreiverClassName="ar.com.dc.receiver.carlitos.Hamburgesas.Pepe2"/>
+		<method methodPatter="pepe2" package="ar.com.datatransfer.aspect"/>
+	</event>
+	<message>
+		<sender msg="sender1">
+			<method methodPatter="pepe.sender" package="rio.online"/>
+			<owner nodeRetreiverClassName="ar.com.dc.receiver.carlitos.Hamburgesas"/>
+			<destination nodeRetreiverClassName="ar.com.dc.sender.carlitos.Panqueques"/>
+		</sender>
+		<receiver msg="receiver1">
+			<method methodPatter="pepe.Receiver" package="china.town"/>
+			<owner nodeRetreiverClassName="ar.com.dc.receiver.carlitos.Hamburgesas"/>
+			<source nodeRetreiverClassName="ar.com.dc.receiver.carlitos.Hamburgesas"/>
+		</receiver>
+	</message>
+</trace>

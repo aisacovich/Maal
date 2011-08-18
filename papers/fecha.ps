@@ -1,0 +1,2330 @@
+%-12345X@PJL JOB
+@PJL ENTER LANGUAGE=POSTSCRIPT
+
+%!PS-Adobe-3.0
+%%Title: Java Printing
+%%Creator: PSCRIPT.DRV versão 4.0
+%%CreationDate: 10/17/03 17:04:40
+%%BoundingBox: 11 13 601 780 
+%%Pages: (atend)
+%%PageOrder: Special
+%%Requirements: 
+%%DocumentNeededFonts: (atend)
+%%DocumentSuppliedFonts: (atend)
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 2
+%%EndComments
+
+%%BeginProlog 
+%%BeginProcSet: Pscript_Win_ErrorHandler 1.0 1
+/currentpacking where{pop/oldpack currentpacking def/setpacking where{pop
+false setpacking}if}if/$brkpage 64 dict def $brkpage begin/prnt{dup type
+/stringtype ne{=string cvs}if dup length 6 mul/tx exch def/ty 10 def
+currentpoint/toy exch def/tox exch def 1 setgray newpath tox toy 2 sub moveto
+0 ty rlineto tx 0 rlineto 0 ty neg rlineto closepath fill tox toy moveto 0
+setgray show}bind def/nl{currentpoint exch pop lmargin exch moveto 0 -10
+rmoveto}def/=={/cp 0 def typeprint nl}def/typeprint{dup type exec}readonly def
+/lmargin 72 def/rmargin 72 def/tprint{dup length cp add rmargin gt{nl/cp 0 def
+}if dup length cp add/cp exch def prnt}readonly def/cvsprint{=string cvs
+tprint( )tprint}readonly def/integertype{cvsprint}readonly def/realtype{
+cvsprint}readonly def/booleantype{cvsprint}readonly def/operatortype{(--)
+tprint =string cvs tprint(-- )tprint}readonly def/marktype{pop(-mark- )tprint}
+readonly def/dicttype{pop(-dictionary- )tprint}readonly def/nulltype{pop
+(-null- )tprint}readonly def/filetype{pop(-filestream- )tprint}readonly def
+/savetype{pop(-savelevel- )tprint}readonly def/fonttype{pop(-fontid- )tprint}
+readonly def/nametype{dup xcheck not{(/)tprint}if cvsprint}readonly def
+/stringtype{dup rcheck{(\()tprint tprint(\))tprint}{pop(-string- )tprint}
+ifelse}readonly def/arraytype{dup rcheck{dup xcheck{({)tprint{typeprint}forall
+(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop(-array- )tprint}
+ifelse}readonly def/packedarraytype{dup rcheck{dup xcheck{({)tprint{typeprint}
+forall(})tprint}{([)tprint{typeprint}forall(])tprint}ifelse}{pop
+(-packedarray- )tprint}ifelse}readonly def/courier/Courier findfont 10
+scalefont def end errordict/handleerror{systemdict begin $error begin $brkpage
+begin newerror{/newerror false store vmstatus pop pop 0 ne{grestoreall}if
+showpage initgraphics courier setfont lmargin 720 moveto(ERROR: )prnt
+errorname prnt nl(OFFENDING COMMAND: )prnt/command load prnt $error/ostack
+known{nl nl(STACK:)prnt nl nl $error/ostack get aload length{==}repeat}if
+systemdict/showpage get exec(%%[ Error: )print errorname =print
+(; OffendingCommand: )print/command load =print( ]%%)= flush}if end end end}
+dup 0 systemdict put dup 4 $brkpage put bind readonly put/currentpacking where
+{pop/setpacking where{pop oldpack setpacking}if}if
+%%EndProcSet
+userdict /Pscript_Win_Driver_Incr 200 dict dup begin put
+%%BeginResource: file Pscript_FatalError 2.0 0
+/FatalErrorIf{{initgraphics findfont exch scalefont setfont counttomark 3 div
+cvi{moveto show}repeat showpage quit}{cleartomark}ifelse}bind def
+%%EndResource
+/VM? {vmstatus exch sub exch pop gt { [
+(Este trabalho requer mais memória do que esta impressora dispõe.) 100 500
+(Tente um ou mais dos recursos abaixo, e imprima novamente:) 100 485
+(Na caixa de diálogo PostScript, clique em 'Otimizar para portabilidade'.) 115 470
+(Na caixa de diálogo 'Opções', certifique-se de que a 'Memória disponível da impressora' esteja correta.) 115 455
+(Reduza o número de fontes no documento.) 115 440
+(Imprima o documento por partes.) 115 425
+12 /Times-Roman showpage
+(%%[ PrinterError: Low Printer VM ]%%) =
+true FatalErrorIf}if} bind def
+30000  VM?
+%%BeginResource: file Pscript_Win_Utils 2.0 0
+/|/def load def/,/load load |/~/exch , |/?/ifelse , |/!/pop , |/`/begin , |/^
+/index , |/@/dup , |/+/translate , |/$/roll , |/U/userdict , |/M/moveto , |/-
+/rlineto , |/&/currentdict , |/:/gsave , |/;/grestore , |/F/false , |/T/true ,
+|/N/newpath , |/E/end , |/Ac/arc , |/An/arcn , |/A/ashow , |/D/awidthshow , |
+/C/closepath , |/V/div , |/O/eofill , |/L/fill , |/I/lineto , |/-C/rcurveto ,
+|/-M/rmoveto , |/+S/scale , |/Ji/setfont , |/Lc/setlinecap , |/Lj/setlinejoin
+, |/Lw/setlinewidth , |/S/show , |/LH/showpage , |/K/stroke , |/W/widthshow ,
+|/R/rotate , |/b{bind |}bind |/bd{bind |}bind |/xd{~ |}bd/ld{, |}bd/lw/Lw ld
+/lc/Lc ld/lj/Lj ld/sg/setgray ld/L2? F/languagelevel where{! languagelevel 2
+ge{! T}if}if |/g{@ not{U/DefIf_save save put}if U/DefIf_bool 2 ^ put}b
+/DefIf_El{if U/DefIf_bool get not @{U/DefIf_save get restore}if}b/e{DefIf_El !
+}b/self & |/reinitialize{[/TextInit/GraphInit/UtilsInit counttomark{@ where{
+self eq}{F}?{cvx exec}{!}?}repeat cleartomark}b/initialize{`{/ADO_mxRot ~ |
+/TextInitialised? F | reinitialize E}{U/Pscript_Win_Data 200 dict @ ` put
+/ADO_mxRot ~ |/TextInitialised? F | reinitialize}?}b/terminate{!{& self eq{
+exit}{E}?}loop E}b/suspend/terminate , |/resume{` Pscript_Win_Data `}b/snap{
+transform 0.25 sub round 0.25 add ~ 0.25 sub round 0.25 add ~ itransform}b
+/dsnap{dtransform round ~ round ~ idtransform}b<04>cvn{}|/setjn{{statusdict
+/jobname known{statusdict/jobname 3 -1 $ put}if}stopped cleartomark}b/solid{[]
+0 setdash}b/setdsh{0 setdash}b/colspRefresh{}b/rp{4 2 $ M 1 ^ 0 - 0 ~ - neg 0
+-}b/rr{1 ^ 0 - 0 ~ - neg 0 - C}b
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L1 2.0 0
+L2? not g{/rf{N rp L}b/fx{1 1 dtransform @ 0 ge{1 sub 1}{1 add -0.25}? 3 -1 $
+@ 0 ge{1 sub 1}{1 add -0.25}? 3 1 $ 4 1 $ idtransform 4 -2 $ idtransform}b/BZ{
+4 -2 $ snap + +S fx rf}b/rs{N rp C K}b/rc{N rp clip N}b/sg{setgray}b/sco{
+setrgbcolor}b/sgco{{sg}{sco}?}b}e
+%%EndResource
+%%BeginResource: file Pscript_Win_Utils_L2 2.0 0
+L2? g{/colspA/DeviceGray |/colspABC/DeviceRGB |/setAorABC{{colspA}{colspABC}?
+setcolorspace}b/rf/rectfill , |/fx{1 1 dtransform @ 0 ge{1 sub 0.5}{1 add -0.5
+}? 3 -1 $ @ 0 ge{1 sub 0.5}{1 add -0.5}? 3 1 $ 4 1 $ idtransform 4 -2 $
+idtransform}b/BZ{4 -2 $ snap + +S fx rf}b/rs/rectstroke , |/rc/rectclip , |/sg
+{@ @ setcolor}b/sco{setcolor}b/colspRefresh{colspABC setcolorspace}b/sgco{{sg
+}{sco}?}b/UtilsInit{F setglobal}b/definecolorrendering{/ColorRendering
+defineresource !}b/findcolorrendering{@/ColorRendering resourcestatus{! !
+/ColorRendering findresource T}{! F}?}b/selectcolorrendering{@/ColorRendering
+resourcestatus{! !/ColorRendering}{!/DefaultColorRendering/ColorRendering}?
+findresource setcolorrendering}b}e
+%%EndResource
+end
+%%EndProlog
+
+%%BeginSetup 
+[ 1.000 0 0 1.000 0 0 ] false Pscript_Win_Driver_Incr dup /initialize get exec
+
+[{0 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/JobTimeout  4 -1 roll put setuserparams}{statusdict/setjobtimeout get exec}ifelse 
+} stopped cleartomark
+[{240 
+/languagelevel where{pop languagelevel}{1}ifelse 2 ge{1 dict dup/WaitTimeout 4 -1 roll put setuserparams}{statusdict/waittimeout 3 -1 roll put}ifelse 
+} stopped cleartomark
+[{
+%%BeginFeature: *Color Control  Full Color
+
+	<</ProcessColorModel /DeviceCMY>> setpagedevice
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Halftone Cluster (Standard)
+
+	<</Install 
+	{/ClusterHalftone /Halftone findresource sethalftone {} settransfer
+	false setstrokeadjust /ClusterCRD /ColorRendering findresource setcolorrendering
+	} 
+	>> setpagedevice
+    	/ClusterHalftone /Halftone findresource sethalftone 
+   	/ClusterCRD /ColorRendering findresource setcolorrendering    
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *MediaType Paper
+1 dict dup /OutputFaceUp false put setpagedevice
+%%EndFeature
+} stopped cleartomark
+[{
+
+} stopped cleartomark
+[{
+%%BeginFeature: *InputSlot AutoSelect Tray
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *PageSize Letter 8 1/2 x 11 in
+
+	<</DeferredMediaSelection true>> setpagedevice
+    2 dict dup /PageSize [612 792] put dup /ImagingBBox null put setpagedevice
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *OutputBin Upper 
+1 dict dup /OutputFaceUp false put setpagedevice
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Pantone® Off
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution Enhancement (REt) Medium
+2 dict
+	dup /PostRenderingEnhance true put
+	dup /PostRenderingEnhanceDetails
+	2 dict dup /REValue 2 put dup /Type 8 put put
+	setpagedevice
+%%EndFeature
+} stopped cleartomark
+1 setlinecap 1 setlinejoin 
+/mysetup [ 0.240 0 0 -0.240 11.000 780.000 ] | 
+%%EndSetup
+
+userdict begin /savelevel0 save def end
+%%Page: 1 1
+%%BeginPageSetup
+[{
+%%BeginFeature: *Rear Feed Unit Not Installed
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *VMOption 8 - 15 MB Total RAM
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Resolution 300dpi
+
+%%EndFeature
+} stopped cleartomark
+[{
+%%BeginFeature: *Duplex 
+
+%%EndFeature
+} stopped cleartomark
+userdict begin /pagesave save def end mysetup concat colspRefresh : 1.000 1.000 1.000 sco 0 0 2550 3300 rf ; 
+%%EndPageSetup
+
+: 250 0 8 4 rc pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_BW_Images 2.0 0
+/iw 0 |/ih 0 |/im_save 0 |/s 0 |/polarity 0 |/smoothflag 0 |/mystring 0 |/bpc
+0 |/setup1asciiproc{[currentfile mystring/readhexstring cvx/! cvx]cvx bind}b
+/setup1binaryproc{[currentfile mystring/readstring cvx/! cvx]cvx bind}b
+/setup2asciiproc{currentfile/ASCII85Decode filter/RunLengthDecode filter}b
+/setup2binaryproc{currentfile/RunLengthDecode filter}b/mycolorspace{colspABC}|
+/myimagedict{/myimagedict 10 dict | myimagedict @ `/ImageType 1 |
+/MultipleDataSource F | E}b/imageprocarray[/setup1binaryproc/setup1asciiproc
+/setup2binaryproc/setup2asciiproc/setup1binarydecodeproc/setup1asciidecodeproc
+]|/L2Polarity{{[1 0]}{[0 1]}?}b/Q{/im_save save | imageprocarray ~ get/s ~ , |
+L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring ~
+string |/bpc ~ |/ih ~ |/iw ~ |}b/X{/im_save save | imageprocarray ~ get/s ~ ,
+| L2Polarity/polarity ~ |/smoothflag ~ | snap +/dx 2 ^ |/dy 1 ^ | +S/mystring
+~ string |/bpc ~ |/ih ~ |/iw ~ |}b/Z{im_save restore}b/Y{sgco myimagedict @ `
+/Width iw |/Height ih |/Decode polarity |/ImageMatrix[iw 0 0 ih 0 0]|
+/DataSource s |/BitsPerComponent 1 |/Interpolate smoothflag | E imagemask}b
+%%EndResource
+
+%%BeginResource: file Pscript_Win_BW_Images_L1 2.0 0
+L2? not g{/setup2asciiproc{[/Level2ImagesError , aload ! T FatalErrorIf}b
+/setup2binaryproc/setup2asciiproc , |/L2Polarity{}|/Y{sgco iw ih polarity[iw 0
+0 ih 0 0]s imagemask}b}e
+%%EndResource
+
+userdict /Level2ImagesError [
+(Este trabalho contém uma imagem bitmap que só pode ser impressa em) 100 500
+(impressoras PostScript(R) nível 2.  Envie este arquivo para uma) 100 485
+(impressora PostScript(R) nível 2, ou imprima o documento novamente, com a impressora) 100 470
+(correta selecionada.) 100 455
+12 /Times-Roman
+] put
+
+%%BeginResource: file Pscript_Win_Co_Images_L1 2.0 0
+L2? not g{/testsystemdict{where{systemdict eq{T}{F}?}{F}?}b/c 1 |/colorimage
+where{! T}{F}?{/c 0 statusdict `/processcolors where{! ! processcolors}{
+/deviceinfo where{! deviceinfo/Colors known{!{deviceinfo/Colors get}}if}if}? E
+| c 0 ne{/colorimage testsystemdict/setcolortransfer testsystemdict
+/currentcolortransfer testsystemdict/currentcmykcolor testsystemdict and and
+and not{/c 0 |}if}if}if c @ 1 ne ~ @ 3 ne ~ 4 ne and and{/c 0 |}if c 1 eq g{
+/expandbw{expandfactor mul round cvi bwclut ~ get 255 V}b/doclutimage{!/bwclut
+~ | bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/expandfactor ~ |[/expandbw ,/exec , @
+currenttransfer ~]cvx bind settransfer iw ih bpc[iw 0 0 ih 0 0]s image}b}e c @
+3 eq ~ 4 eq or g{/nullproc{{}}|/concatutil{/exec , 7 -1 $/exec ,}b/defsubclut{
+1 add getinterval |}b/spconcattransfer{/Dclut ~ |/Cclut ~ |/Bclut ~ |/Aclut ~
+|/ncompute ~ , | currentcolortransfer[{Aclut ncompute}concatutil]cvx[{Bclut
+ncompute}concatutil]cvx[{Cclut ncompute}concatutil]cvx[{Dclut ncompute}
+concatutil]cvx setcolortransfer}b/setuprgbcluts{/bit3x rgbclut length 3 sub |
+/bit1x bit3x 3 idiv |/rclut rgbclut |/gclut rclut 1 bit3x defsubclut/bclut
+rclut 2 bit3x defsubclut}b}e c 3 eq g{/3compute{~ bit3x mul round cvi get 255
+V}b/doclutimage{/rgbclut ~ | ! setuprgbcluts/3compute rclut gclut bclut @
+spconcattransfer iw ih bpc[iw 0 0 ih 0 0][s/exec ,/@ , @]cvx nullproc nullproc
+T 3 colorimage}b}e c 4 eq g{/ftoint{1 ~ sub 255 mul round cvi}b/stuffclut{
+cmykindex 3 -1 $ put}b/4compute{~ bit4x mul round cvi get 255 V}b
+/invalidcolortable? T |/computecmykclut{setuprgbcluts/bit4x rgbclut length 3
+idiv 4 mul 4 sub |/cmykclut bit4x 4 add string |/cclut cmykclut |/mclut cclut
+1 bit4x defsubclut/yclut cclut 2 bit4x defsubclut/kclut cclut 3 bit4x
+defsubclut/cmykindex 0 | 0 1 bit1x{@/cmykindex ~ bit1x ~ sub 4 mul | 3 mul @
+rclut ~ get 255 V ~ @ gclut ~ get 255 V ~ bclut ~ get 255 V setrgbcolor
+currentcmykcolor ftoint kclut stuffclut ftoint yclut stuffclut ftoint mclut
+stuffclut ftoint cclut stuffclut}for}b/doclutimage{/rgbclut ~ | !
+invalidcolortable?{computecmykclut}if/4compute cclut mclut yclut kclut
+spconcattransfer iw ih bpc[iw 0 0 ih 0 0][s/exec ,/@ , @ @]cvx nullproc
+nullproc nullproc T 4 colorimage}b}e c 0 eq g{/a{3 mul 3 getinterval
+putinterval ~ 3 add ~ 3 copy}b/8lookup/a , |/4lookup{/byte 1 ^ | -4 bitshift a
+byte 15 and a}b/2lookup{/byte 1 ^ | -6 bitshift a byte -4 bitshift 3 and a
+byte -2 bitshift 3 and a byte 3 and a}b/colorexpand{mystringexp 0 rgbclut 3
+copy 7 -1 $/mylookup , forall ! ! ! ! !}b/createexpandstr{/mystringexp ~
+mystring length mul string |}b/doclutimage{/rgbclut ~ | !/mylookup bpc 8 eq{3
+createexpandstr/8lookup}{bpc 4 eq{6 createexpandstr/4lookup}{12
+createexpandstr/2lookup}?}? , | iw ih bpc[iw 0 0 ih 0 0][s/exec ,/colorexpand
+,/exec ,]cvx F 3 colorimage}b}e/colorimage where{! T}{F}? g{/do24image{iw ih 8
+[iw 0 0 ih 0 0]s F 3 colorimage}b}DefIf_El{/rgbtogray{/str ~ |/len str length
+|/smlen len 3 idiv |/rstr str |/gstr str 1 len 1 sub getinterval |/bstr str 2
+len 2 sub getinterval | str @ 0 1 smlen 1 sub{@ 3 mul rstr 1 ^ get 0.3 mul
+gstr 2 ^ get 0.59 mul add bstr 3 -1 $ get 0.11 mul add round cvi put @}for ! 0
+smlen getinterval}b/do24image{iw ih 8[iw 0 0 ih 0 0][s/exec ,/rgbtogray ,/exec
+,]cvx bind image}b}e/doNimage{bpc 24 eq{do24image}{iw ih bpc[iw 0 0 ih 0 0]s
+image}?}b}e
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Co_Images_L2 2.0 0
+L2? g{/doclutimage{/rgbclut ~ | ! bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/hival ~ |[
+/Indexed colspABC hival rgbclut]setcolorspace myimagedict @ `/Width iw |
+/Height ih |/Decode[0 hival]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |
+/BitsPerComponent bpc |/Interpolate smoothflag | E image}b/doCMYKclutimage{
+/CMYKclut ~ | ! bpc @ 8 eq{! 255}{4 eq{15}{3}?}?/hival ~ |[/Indexed/DeviceCMYK
+hival CMYKclut]setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode[0
+hival]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent bpc |
+/Interpolate smoothflag | E image}b/doNimage{bpc 24 eq{colspABC}{colspA}?
+setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode bpc 24 eq{[0 1 0 1
+0 1]}{[0 1]}? |/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent
+bpc 24 eq{8}{bpc}? |/Interpolate smoothflag | E image}b/doCMYKimage{
+/DeviceCMYK setcolorspace myimagedict @ `/Width iw |/Height ih |/Decode[0 1 0
+1 0 1 0 1]|/ImageMatrix[iw 0 0 ih 0 0]|/DataSource s |/BitsPerComponent 8 |
+/Interpolate smoothflag | E image}b}e
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+: 0 0 0 sco 1 Lc 1 Lj solid 250 0 8 4 rc 2 1 24 6 9 -5 250 5 F T 1 
+X
+doNimage
+FFFFFFFFFFFF
+Z
+; : 533 0 5 4 rc 1 1 24 3 5 -5 533 5 F T 1 
+X
+doNimage
+FFFFFF
+Z
+; : 246 4 21 4 rc 5 1 24 15 21 -5 246 9 F T 1 
+X
+doNimage
+FFFFFFF6CFD6F6BBC5F6C6CFFFFFFF
+Z
+; : 442 4 12 4 rc 3 1 24 9 13 -5 442 9 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFF
+Z
+; : 521 4 21 4 rc 5 1 24 15 21 -5 521 9 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF1B7C4EFA6B4FDF7F7
+Z
+; : 242 8 29 5 rc 7 1 24 21 30 -5 242 13 F T 1 
+X
+doNimage
+F3C8D2E75570D90A30D90019DE092FE65E78F6D7DD
+Z
+; : 433 8 25 5 rc 6 1 24 18 26 -5 433 13 F T 1 
+X
+doNimage
+FFFFFFFDF7F7EE9DADE98B9CEEB5BFFFFFFF
+Z
+; : 517 8 25 5 rc 6 1 24 18 26 -5 517 13 F T 1 
+X
+doNimage
+F7E5E8EF99A8E5526CDD0E2BE14C69F9F7F8
+Z
+; : 704 8 17 5 rc 4 1 24 12 17 -5 704 13 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF9F1F4F5E9ED
+Z
+; : 142 13 133 4 rc 32 1 24 96 134 -5 142 18 F T 1 
+X
+doNimage
+FFFFFFF7E5E8EEABB5E68293E87B90EA9EACF0BCC5F6DBDFFDF7F7FFFFFFFFFF
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFDEFF3F1B7C4DE1832DE2447EFA6B4F7D4DAE98699DD002AE03F5CF7E5E8
+Z
+; : 429 13 34 4 rc 8 1 24 24 34 -5 429 18 F T 1 
+X
+doNimage
+FFFFFFEEB5BFE4415BDE1832DE1238DE1832E6637BFDF7F7
+Z
+; : 475 13 67 4 rc 16 1 24 48 67 -5 475 18 F T 1 
+X
+doNimage
+FFFFFFFBDDE2F0AEBBEA919FE88FA1E88FA1EA95A5F1BECAFCE9EDFCE9EDDF3B
+5ADF183AE25972DF2A44E55A73FFFFFF
+Z
+; : 683 13 42 4 rc 10 1 24 30 42 -5 683 18 F T 1 
+X
+doNimage
+FFFFFFFDEFF3F3C8D2F0AEBBE98699E6637BE54964E33250E2657CFDF7F7
+Z
+; : 133 17 121 4 rc 29 1 24 87 121 -5 133 22 F T 1 
+X
+doNimage
+FFFFFFFCE9EDE77A8DDF183ADF2142E53B5BE33250DE2447DE2447DE092FDF21
+42DF3B5AE55A73E77A8DEFA6B4EEABB5F6CFD6F3B0BCEFA6B4ED909EE87B90E6
+637BE25972DE3252DF1B40DD002ADF2142F6DBDFFFFFFF
+Z
+; : 263 17 16 4 rc 4 1 24 12 17 -5 263 22 F T 1 
+X
+doNimage
+F0AEBBDD002AED909EFFFFFF
+Z
+; : 425 17 117 4 rc 28 1 24 84 117 -5 425 22 F T 1 
+X
+doNimage
+FFFFFFEFA6B4DE0021E5526CF0AEBBF6DBDFE98B9CDF183AE65E78FFFFFFFFFF
+FFF3C8D2E6637BDE1031DE2C4EE54C69E75570E67386E67386E5526CE25972DF
+2142DF1B40F3C8D2FFFFFFE14C69E75570FFFFFF
+Z
+; : 679 17 46 4 rc 11 1 24 33 46 -5 679 22 F T 1 
+X
+doNimage
+FFFFFFF6C0CADD0E2BDF2142DF3B5AE44362E75570E76C83DF1B40DE3252FDF7
+F7
+Z
+; : 129 21 121 4 rc 29 1 24 87 121 -5 129 26 F T 1 
+X
+doNimage
+FFFFFFF6CFD6DF2A44DD092AEE8295F6CFD6FFFFFFFFFFFFF7EEF0F6CFD6EE9D
+ADEF99A8E7748AE65E78E14361DE3252D90022DD002AD90022DF183ADE3252E1
+4361E65E78E66A7DEC768BEF99A8DF1B40EF94A4FFFFFF
+Z
+; : 263 21 16 4 rc 4 1 24 12 17 -5 263 26 F T 1 
+X
+doNimage
+FFFFFFDF3B5AE14C69F9F7F8
+Z
+; : 417 21 25 4 rc 6 1 24 18 26 -5 417 26 F T 1 
+X
+doNimage
+F9F7F8F5E9EDF6CFD6DE092FE25972FDF7F7
+Z
+; : 450 21 75 4 rc 18 1 24 54 76 -5 450 26 F T 1 
+X
+doNimage
+FFFFFFEF94A4DF2142F7DFE6EC7D92DC0019DF2A44EF94A4F6CFD6F9F7F8FFFF
+FFFFFFFFFFFFFFFFFFFFF6C6CFEB7987F3B0BCFFFFFF
+Z
+; : 529 21 13 4 rc 3 1 24 9 13 -5 529 26 F T 1 
+X
+doNimage
+E04964E75570FFFFFF
+Z
+; : 654 21 13 4 rc 3 1 24 9 13 -5 654 26 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFF
+Z
+; : 679 21 46 4 rc 11 1 24 33 46 -5 679 26 F T 1 
+X
+doNimage
+FFFFFFF394A4DE2A3DF0BCC5F6DBDFF9F1F4FFFFFFFFFFFFE6637BDE2C4EFDF7
+F7
+Z
+; : 129 25 121 4 rc 29 1 24 87 121 -5 129 30 F T 1 
+X
+doNimage
+F6DBDFDF183AE33250FBDDE2FFFFFFF1B7C4E5526CE33953E54C69F3C8D2FFFF
+FFFFFFFFFFFFFFFFFFFFF9F1F4F9F1F4F6C6CFDD092AEF94A4F7E5E8F7EEF0F9
+F1F4FFFFFFFFFFFFFFFFFFFCE9EDDE1031EFA6B4FFFFFF
+Z
+; : 267 25 12 4 rc 3 1 24 9 13 -5 267 30 F T 1 
+X
+doNimage
+E2516CE54964F9F7F8
+Z
+; : 404 25 34 4 rc 8 1 24 24 34 -5 404 30 F T 1 
+X
+doNimage
+FFFFFFF9F1F4E98B9CE33953E33953DE1238E5526CFFFFFF
+Z
+; : 454 25 29 4 rc 7 1 24 21 30 -5 454 30 F T 1 
+X
+doNimage
+F0BCC5DE2447DE1238DE1238E98B9CF7EEF0FFFFFF
+Z
+; : 492 25 33 4 rc 8 1 24 24 34 -5 492 30 F T 1 
+X
+doNimage
+FDF7F7EFC6CEF1B7C4FCE9EDFFFFFFFFFFFFFFFFFFFFFFFF
+Z
+; : 529 25 13 4 rc 3 1 24 9 13 -5 529 30 F T 1 
+X
+doNimage
+E04964E75570FFFFFF
+Z
+; : 646 25 25 4 rc 6 1 24 18 26 -5 646 30 F T 1 
+X
+doNimage
+F7EEF0E68293E53B5BE53B5BE87B90F7DFE6
+Z
+; : 679 25 21 4 rc 5 1 24 15 21 -5 679 30 F T 1 
+X
+doNimage
+FFFFFFEF99A8DE2C4EF0BCC5F9F1F4
+Z
+; : 708 25 17 4 rc 4 1 24 12 17 -5 708 30 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 125 29 50 4 rc 12 1 24 36 51 -5 125 34 F T 1 
+X
+doNimage
+FFFFFFE75570DF2142FCE9EDFFFFFFE2516CDF2138E53B5BE5526CDE1238E329
+4BFDF7F7
+Z
+; : 192 29 25 4 rc 6 1 24 18 26 -5 192 34 F T 1 
+X
+doNimage
+FDF7F7EE9DADDC000FE14C69EFC6CEFFFFFF
+Z
+; : 229 29 21 4 rc 5 1 24 15 21 -5 229 34 F T 1 
+X
+doNimage
+F6CFD6DE2447DC000FE5526CFFFFFF
+Z
+; : 258 29 21 4 rc 5 1 24 15 21 -5 258 34 F T 1 
+X
+doNimage
+FFFFFFF9F1F4DE1238E77A8DFFFFFF
+Z
+; : 288 29 12 4 rc 3 1 24 9 13 -5 288 34 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFF
+Z
+; : 396 29 37 4 rc 9 1 24 27 38 -5 396 34 F T 1 
+X
+doNimage
+FFFFFFFBDDE2EC7D92DF2142DF2A44E75570E54964DD092AFBDDE2
+Z
+; : 438 29 8 4 rc 2 1 24 6 9 -5 438 34 F T 1 
+X
+doNimage
+FFFFFFFFFFFF
+Z
+; : 450 29 25 4 rc 6 1 24 18 26 -5 450 34 F T 1 
+X
+doNimage
+FFFFFFE68293D90012DE2447F6CFD6FFFFFF
+Z
+; : 483 29 38 4 rc 9 1 24 27 38 -5 483 34 F T 1 
+X
+doNimage
+FFFFFFEA9EACDF2142DE2C4EE03F5CDE1238E66A7DFCE9EDFFFFFF
+Z
+; : 529 29 13 4 rc 3 1 24 9 13 -5 529 34 F T 1 
+X
+doNimage
+E04964E75570FFFFFF
+Z
+; : 642 29 33 4 rc 8 1 24 24 34 -5 642 34 F T 1 
+X
+doNimage
+F6D7DDE33250DE2A3DE54964E65E78DF2A44DF2A44F6D7DD
+Z
+; : 679 29 21 4 rc 5 1 24 15 21 -5 679 34 F T 1 
+X
+doNimage
+FFFFFFF6DBDFE76C83E03954EFC6CE
+Z
+; : 708 29 17 4 rc 4 1 24 12 17 -5 708 34 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 125 33 13 5 rc 3 1 24 9 13 -5 125 38 F T 1 
+X
+doNimage
+F7D4DADD092AEA95A5
+Z
+; : 142 33 33 5 rc 8 1 24 24 34 -5 142 38 F T 1 
+X
+doNimage
+E87B90DC0019E25972F0BCC5FFFFFFF2D3D9DF2142EFC6CE
+Z
+; : 188 33 29 5 rc 7 1 24 21 30 -5 188 38 F T 1 
+X
+doNimage
+FFFFFFED798DDC0019E2516CDF183AE3294BFFFFFF
+Z
+; : 225 33 54 5 rc 13 1 24 39 55 -5 225 38 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90A30EA95A5D90A30EC768BF6DBDFF9F7F8F6CFD6E04964DE12
+38F6DBDFFFFFFF
+Z
+; : 283 33 38 5 rc 9 1 24 27 38 -5 283 38 F T 1 
+X
+doNimage
+FFFFFFF3C8D2E77A8DEA919FFFFFFFF9F1F4F7E5E8F7DFE6FFFFFF
+Z
+; : 392 33 79 5 rc 19 1 24 57 80 -5 392 38 F T 1 
+X
+doNimage
+F6C0CAE76C83DE092FDF2138E76C83F3C8D2FFFFFFF7DFE6EFC6CEFFFFFFF0BC
+C5E66A7DEFA6B4F7E5E8EA9EACDE0021E33953F7E5E8FFFFFF
+Z
+; : 475 33 46 5 rc 11 1 24 33 46 -5 475 38 F T 1 
+X
+doNimage
+FFFFFFF7EEF0E6637BDE0021E7748AF0BCC5F6DBDFE98B9CDE0021E03954F7E5
+E8
+Z
+; : 525 33 17 5 rc 4 1 24 12 17 -5 525 38 F T 1 
+X
+doNimage
+FFFFFFE04964E75570FFFFFF
+Z
+; : 629 33 50 5 rc 12 1 24 36 51 -5 629 38 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF7EEF0DE304ADE304AF1BECAFFFFFFFFFFFFF6DBDFDE1832EB6A
+82FFFFFF
+Z
+; : 688 33 12 5 rc 3 1 24 9 13 -5 688 38 F T 1 
+X
+doNimage
+F6D7DDE54964F6CFD6
+Z
+; : 708 33 17 5 rc 4 1 24 12 17 -5 708 38 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 125 38 50 4 rc 12 1 24 36 51 -5 125 43 F T 1 
+X
+doNimage
+E76C83E33953F7DFE6FFFFFFDE3252DE0021DF183ADE1031E33250E87B90DE2C
+4EF1B7C4
+Z
+; : 188 38 29 4 rc 7 1 24 21 30 -5 188 43 F T 1 
+X
+doNimage
+FFFFFFE75570DE3252F9F7F8E76C83E3294BFFFFFF
+Z
+; : 225 38 104 4 rc 25 1 24 75 105 -5 225 43 F T 1 
+X
+doNimage
+FFFFFFF1A4AFDF183AFFFFFFF0BCC5DE1031DE3252E54964DF1B40DD002AF0BC
+C5FFFFFFF9F1F4F0AEBBE55A73DF183ADE092FDE092FE54C69E54964E53B5BE3
+3953E6637BF6CFD6FFFFFF
+Z
+; : 354 38 25 4 rc 6 1 24 18 26 -5 354 43 F T 1 
+X
+doNimage
+FFFFFFF6DBDFF0AEBBEEB5BFF7D4DAFFFFFF
+Z
+; : 388 38 25 4 rc 6 1 24 18 26 -5 388 43 F T 1 
+X
+doNimage
+FFFFFFE2516CDE0021E98699F7DFE6FFFFFF
+Z
+; : 421 38 46 4 rc 11 1 24 33 46 -5 421 43 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF1B7C4DF183ADF183ADF183AE33250DD002ADF183AF7E5E8FFFF
+FF
+Z
+; : 475 38 21 4 rc 5 1 24 15 21 -5 475 43 F T 1 
+X
+doNimage
+F9F7F8E6637BDE0021EF99A8FFFFFF
+Z
+; : 504 38 21 4 rc 5 1 24 15 21 -5 504 43 F T 1 
+X
+doNimage
+FFFFFFE88FA1DD002AE76C83FFFFFF
+Z
+; : 529 38 13 4 rc 3 1 24 9 13 -5 529 43 F T 1 
+X
+doNimage
+E03954E55A73FFFFFF
+Z
+; : 625 38 25 4 rc 6 1 24 18 26 -5 625 43 F T 1 
+X
+doNimage
+FDF7F7EA95A5EF99A8E04964DF2142F7DFE6
+Z
+; : 667 38 33 4 rc 8 1 24 24 34 -5 667 43 F T 1 
+X
+doNimage
+E98B9CE03954F9F7F8FFFFFFFFFFFFF6DBDFE03F5CF6CFD6
+Z
+; : 708 38 17 4 rc 4 1 24 12 17 -5 708 43 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 125 42 50 4 rc 12 1 24 36 51 -5 125 47 F T 1 
+X
+doNimage
+E4415BE4415BF5E9EDFFFFFFE2516CE33953F0AEBBEEB5BFE4415BDC0019DF21
+42EFC6CE
+Z
+; : 188 42 29 4 rc 7 1 24 21 30 -5 188 47 F T 1 
+X
+doNimage
+FFFFFFE5526CDF3B5AFFFFFFEC7D92DF1B40F7DFE6
+Z
+; : 225 42 108 4 rc 26 1 24 78 109 -5 225 47 F T 1 
+X
+doNimage
+FFFFFFF1A4AFDF1B40FFFFFFFFFFFFEFA6B4DD002ADC0019DF294BDE1238EA95
+A5E98B9CDE1031DF2A44E03954F1A4AFFDEFF3E2657CDF1B40E77A8DF1A4AFEA
+919FE33250DF183AEEB5BFFFFFFF
+Z
+; : 346 42 42 4 rc 10 1 24 30 42 -5 346 47 F T 1 
+X
+doNimage
+FFFFFFEF99A8DE2447E33250E03954E03F5CDE3252DE3252F1A4AFFFFFFF
+Z
+; : 392 42 21 4 rc 5 1 24 15 21 -5 392 47 F T 1 
+X
+doNimage
+E03F5CE54C69F9F1F4F6DBDFFFFFFF
+Z
+; : 425 42 38 4 rc 9 1 24 27 38 -5 425 47 F T 1 
+X
+doNimage
+F5E9EDDF2142E33250F9F1F4F7D4DADE2C4EDC0019EFA6B4FFFFFF
+Z
+; : 471 42 17 4 rc 4 1 24 12 17 -5 471 47 F T 1 
+X
+doNimage
+FFFFFFE68293DC0019EE9DAD
+Z
+; : 508 42 34 4 rc 8 1 24 24 34 -5 508 47 F T 1 
+X
+doNimage
+FFFFFFE44362DE1238F7D4DAFFFFFFE03F5CE55A73FFFFFF
+Z
+; : 567 42 21 4 rc 5 1 24 15 21 -5 567 47 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+Z
+; : 608 42 46 4 rc 11 1 24 33 46 -5 608 47 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF6CFD6E87B90DF1B40DF294BDE1238DE0021F0AEBBFFFFFFFFFF
+FF
+Z
+; : 663 42 37 4 rc 9 1 24 27 38 -5 663 47 F T 1 
+X
+doNimage
+FFFFFFE98B9CDF1B40E2657CE03F5CE44362E14C69DE2447F6CFD6
+Z
+; : 708 42 17 4 rc 4 1 24 12 17 -5 708 47 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 125 46 13 4 rc 3 1 24 9 13 -5 125 51 F T 1 
+X
+doNimage
+E67386DF2142F6CFD6
+Z
+; : 142 46 12 4 rc 3 1 24 9 13 -5 142 51 F T 1 
+X
+doNimage
+F6DBDFF7DFE6FFFFFF
+Z
+; : 158 46 17 4 rc 4 1 24 12 17 -5 158 51 F T 1 
+X
+doNimage
+F7E5E8DE2447DF1B40F7E5E8
+Z
+; : 188 46 29 4 rc 7 1 24 21 30 -5 188 51 F T 1 
+X
+doNimage
+FFFFFFE5526CE03954FFFFFFE87B90DF183AF6DBDF
+Z
+; : 225 46 67 4 rc 16 1 24 48 67 -5 225 51 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90A30EA919FE5526CD90022E54964ED909EF7E5E8E68293DE00
+21DF1B40EB637AF0AEBBFFFFFFFFFFFF
+Z
+; : 296 46 12 4 rc 3 1 24 9 13 -5 296 51 F T 1 
+X
+doNimage
+F2D3D9FCE9EDFFFFFF
+Z
+; : 317 46 16 4 rc 4 1 24 12 17 -5 317 51 F T 1 
+X
+doNimage
+FFFFFFED909EDE1238F6CFD6
+Z
+; : 342 46 71 4 rc 17 1 24 51 71 -5 342 51 F T 1 
+X
+doNimage
+FDEFF3E45063D90A30EC8599EEABB5F3C8D2F6DBDFEFA6B4ED798DDF1B40E34A
+5DF7DFE6E55A73DE0021DF183AE03954F5E9ED
+Z
+; : 421 46 17 4 rc 4 1 24 12 17 -5 421 51 F T 1 
+X
+doNimage
+FFFFFFEC8599DF1B40F6DBDF
+Z
+; : 442 46 16 4 rc 4 1 24 12 17 -5 442 51 F T 1 
+X
+doNimage
+FCE9EDDF183AE87B90FFFFFF
+Z
+; : 471 46 17 4 rc 4 1 24 12 17 -5 471 51 F T 1 
+X
+doNimage
+F7D4DADD092AEF94A4FFFFFF
+Z
+; : 513 46 29 4 rc 7 1 24 21 30 -5 513 51 F T 1 
+X
+doNimage
+EEB5BFD90019F3B0BCFFFFFFE03F5CE55A73FFFFFF
+Z
+; : 558 46 34 4 rc 8 1 24 24 34 -5 558 51 F T 1 
+X
+doNimage
+FFFFFFF7EEF0F6C6CFF1B7C4F1B7C4F1B7C4F6C6CFF9F1F4
+Z
+; : 600 46 100 4 rc 24 1 24 72 101 -5 600 51 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF3C8D2E76C83DD002ADE304AE6637BEECFD5E77A8DE6637BFFFF
+FFFFFFFFF3C8D2FFFFFFFFFFFFF7DFE6DE304ADE0021E5526CEF99A8EFA6B4EC
+7D92E66A7DF3C8D2
+Z
+; : 708 46 17 4 rc 4 1 24 12 17 -5 708 51 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 125 50 17 4 rc 4 1 24 12 17 -5 125 55 F T 1 
+X
+doNimage
+F6DBDFDE092FE98B9CFFFFFF
+Z
+; : 158 50 17 4 rc 4 1 24 12 17 -5 158 55 F T 1 
+X
+doNimage
+F7EEF0E4415BDF183AF7DFE6
+Z
+; : 188 50 29 4 rc 7 1 24 21 30 -5 188 55 F T 1 
+X
+doNimage
+FFFFFFE5526CDE3252FFFFFFE87B90DF183AF6DBDF
+Z
+; : 225 50 33 4 rc 8 1 24 24 34 -5 225 55 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022D90022E03954EFA6B4F9F7F8FFFFFF
+Z
+; : 263 50 16 4 rc 4 1 24 12 17 -5 263 55 F T 1 
+X
+doNimage
+F1BECADF294BEEB5BFFFFFFF
+Z
+; : 296 50 17 4 rc 4 1 24 12 17 -5 296 55 F T 1 
+X
+doNimage
+FFFFFFF7E5E8EA95A5F6DBDF
+Z
+; : 321 50 50 4 rc 12 1 24 36 51 -5 321 55 F T 1 
+X
+doNimage
+FFFFFFEB637AE3324BFFFFFFFCE9EDE33953E3324BF3C8D2FFFFFFFFFFFFF6DB
+DFF6CFD6
+Z
+; : 375 50 38 4 rc 9 1 24 27 38 -5 375 55 F T 1 
+X
+doNimage
+FFFFFFF2D3D9E33953DE304ADE304AE65A6EE45063E33250F6DBDF
+Z
+; : 421 50 37 4 rc 9 1 24 27 38 -5 421 55 F T 1 
+X
+doNimage
+F9F7F8E44362E75570FFFFFFFFFFFFE7748ADF2142F5E9EDFFFFFF
+Z
+; : 467 50 21 4 rc 5 1 24 15 21 -5 467 55 F T 1 
+X
+doNimage
+FFFFFFE55A73E33953F7F7FFFFFFFF
+Z
+; : 513 50 29 4 rc 7 1 24 21 30 -5 513 55 F T 1 
+X
+doNimage
+FDF7F7DE1832E66A7DEFC6CEDF2142E54C69F9F7F8
+Z
+; : 554 50 75 4 rc 18 1 24 54 76 -5 554 55 F T 1 
+X
+doNimage
+F5E9EDE98B9CE03F5CDE092FD90022D90022D90022DE092FE4415BEA95A5FFFF
+FFFCE9EDE87B90DD092ADE1238EF99A8F7DFE6FFFFFF
+Z
+; : 633 50 50 4 rc 12 1 24 36 51 -5 633 55 F T 1 
+X
+doNimage
+FDF7F7F9F1F4F7E5E8E75570DE1031E65E78EC8599DE3252D90022EE9DADFFFF
+FFFFFFFF
+Z
+; : 688 50 12 4 rc 3 1 24 9 13 -5 688 55 F T 1 
+X
+doNimage
+FFFFFFF9F7F8FDF7F7
+Z
+; : 708 50 17 4 rc 4 1 24 12 17 -5 708 55 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 125 54 50 4 rc 12 1 24 36 51 -5 125 59 F T 1 
+X
+doNimage
+FFFFFFE68293DC000FEF99A8FFFFFFFFFFFFFFFFFFFDF7F7E7748ADC0019DF21
+42F6DBDF
+Z
+; : 188 54 29 4 rc 7 1 24 21 30 -5 188 59 F T 1 
+X
+doNimage
+FFFFFFE54C69E54C69FFFFFFEA95A5E33250F7DFE6
+Z
+; : 225 54 25 4 rc 6 1 24 18 26 -5 225 59 F T 1 
+X
+doNimage
+FFFFFFEFA6B4DD002AEEB5BFF9F7F8FFFFFF
+Z
+; : 263 54 20 4 rc 5 1 24 15 21 -5 263 59 F T 1 
+X
+doNimage
+EFA6B4DF294BE65E78E5526CFCE9ED
+Z
+; : 296 54 21 4 rc 5 1 24 15 21 -5 296 59 F T 1 
+X
+doNimage
+F9F1F4E65A6EDF2138E54C69F9F7F8
+Z
+; : 325 54 50 4 rc 12 1 24 36 51 -5 325 59 F T 1 
+X
+doNimage
+F7DFE6DF2142EF99A8E65A6EDE304AF7EEF0FFFFFFFFFFFFF1A4AFDF2A44DF2A
+44EF99A8
+Z
+; : 383 54 30 4 rc 7 1 24 21 30 -5 383 59 F T 1 
+X
+doNimage
+F5E9EDDF183AE54964FFFFFFEEB5BFE4415BF6DBDF
+Z
+; : 421 54 12 4 rc 3 1 24 9 13 -5 421 59 F T 1 
+X
+doNimage
+F9F1F4E44362E68293
+Z
+; : 438 54 16 4 rc 4 1 24 12 17 -5 438 59 F T 1 
+X
+doNimage
+F9F7F8E33953E65E78FFFFFF
+Z
+; : 467 54 16 4 rc 4 1 24 12 17 -5 467 59 F T 1 
+X
+doNimage
+F5E9EDDF294BED909EFFFFFF
+Z
+; : 513 54 29 4 rc 7 1 24 21 30 -5 513 59 F T 1 
+X
+doNimage
+FFFFFFE65E78DC000FDF294BDF294BEA9EACFFFFFF
+Z
+; : 546 54 75 4 rc 18 1 24 54 76 -5 546 59 F T 1 
+X
+doNimage
+FFFFFFF0BCC5DF2142DE0021E4415BE68293F6C0CAF7D4DAEA9EACE77A8DDE24
+47DD092AE87B90F7DFE6DE092FE76C83F9F1F4FFFFFF
+Z
+; : 638 54 37 4 rc 9 1 24 27 38 -5 638 59 F T 1 
+X
+doNimage
+FFFFFFE65A6EDE1031E98699E2657CDF3B5ADE0021EA95A5FFFFFF
+Z
+; : 683 54 5 4 rc 1 1 24 3 5 -5 683 59 F T 1 
+X
+doNimage
+FFFFFF
+Z
+; : 708 54 17 4 rc 4 1 24 12 17 -5 708 59 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 129 58 46 5 rc 11 1 24 33 46 -5 129 63 F T 1 
+X
+doNimage
+FDF7F7E67386DC0019E14361ED909EED909EE03954DF1B40E03954DF1B40F6DB
+DF
+Z
+; : 188 58 29 5 rc 7 1 24 21 30 -5 188 63 F T 1 
+X
+doNimage
+FFFFFFE75570DE3252F9F7F8E98B9CE14361FFFFFF
+Z
+; : 225 58 29 5 rc 7 1 24 21 30 -5 225 63 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022EC8599E76074EEB5BFFFFFFF
+Z
+; : 263 58 20 5 rc 5 1 24 15 21 -5 263 63 F T 1 
+X
+doNimage
+EEB5BFDE1238DF1B40DE1238E77A8D
+Z
+; : 292 58 29 5 rc 7 1 24 21 30 -5 292 63 F T 1 
+X
+doNimage
+FFFFFFF1A4AFDF1B40F7E5E8DF3B5AEFA6B4FFFFFF
+Z
+; : 325 58 25 5 rc 6 1 24 18 26 -5 325 63 F T 1 
+X
+doNimage
+FFFFFFED798DDC000FDD092AF6C6CFFFFFFF
+Z
+; : 354 58 25 5 rc 6 1 24 18 26 -5 354 63 F T 1 
+X
+doNimage
+F5E9EDE4415BEA95A5E98B9CDF3B5AFDEFF3
+Z
+; : 388 58 25 5 rc 6 1 24 18 26 -5 388 63 F T 1 
+X
+doNimage
+F0AEBBE3294BF7DFE6F0AEBBE03F5CF6DBDF
+Z
+; : 421 58 29 5 rc 7 1 24 21 30 -5 421 63 F T 1 
+X
+doNimage
+F9F1F4E54964E7748AFFFFFFF0BCC5DE2447F1BECA
+Z
+; : 467 58 12 5 rc 3 1 24 9 13 -5 467 63 F T 1 
+X
+doNimage
+F0AEBBE33953F3C8D2
+Z
+; : 513 58 25 5 rc 6 1 24 18 26 -5 513 63 F T 1 
+X
+doNimage
+FFFFFFEEB5BFE75570F1A4AFF7EEF0FFFFFF
+Z
+; : 542 58 37 5 rc 9 1 24 27 38 -5 542 63 F T 1 
+X
+doNimage
+FFFFFFF0BCC5DD092AE3324BEFA6B4FFFFFFFFFFFFFFFFFFFFFFFF
+Z
+; : 583 58 42 5 rc 10 1 24 30 42 -5 583 63 F T 1 
+X
+doNimage
+FFFFFFFFFFFFE6637BDE1031E9AEB8DE2C4EE6637BE68293EA919FFFFFFF
+Z
+; : 633 58 17 5 rc 4 1 24 12 17 -5 633 63 F T 1 
+X
+doNimage
+FFFFFFEF99A8DD0922F6C0CA
+Z
+; : 654 58 17 5 rc 4 1 24 12 17 -5 654 63 F T 1 
+X
+doNimage
+FFFFFFEF99A8DE3252FFFFFF
+Z
+; : 679 58 21 5 rc 5 1 24 15 21 -5 679 63 F T 1 
+X
+doNimage
+FFFFFFF3B0BCEC8599F7DFE6FFFFFF
+Z
+; : 708 58 17 5 rc 4 1 24 12 17 -5 708 63 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 133 63 42 4 rc 10 1 24 30 42 -5 133 68 F T 1 
+X
+doNimage
+FFFFFFF1A4AFE65A6EDF1B40D90A30E76074F3C8D2EA9EACE3294BF6D7DD
+Z
+; : 188 63 29 4 rc 7 1 24 21 30 -5 188 68 F T 1 
+X
+doNimage
+FFFFFFE75570D90012E54964DF2142E3294BFFFFFF
+Z
+; : 225 63 29 4 rc 7 1 24 21 30 -5 225 68 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022D90022DC0019E2516CFDF7F7
+Z
+; : 263 63 20 4 rc 5 1 24 15 21 -5 263 68 F T 1 
+X
+doNimage
+F1A4AFDE2447EECFD5E54C69E55A73
+Z
+; : 292 63 29 4 rc 7 1 24 21 30 -5 292 68 F T 1 
+X
+doNimage
+FFFFFFE65E78EC7D92FFFFFFE68293EB6A82FFFFFF
+Z
+; : 325 63 21 4 rc 5 1 24 15 21 -5 325 68 F T 1 
+X
+doNimage
+FFFFFFEC8599DE0021EC7D92FFFFFF
+Z
+; : 350 63 29 4 rc 7 1 24 21 30 -5 350 68 F T 1 
+X
+doNimage
+FFFFFFEFA6B4DE1031EF99A8E98699DE1238FBDDE2
+Z
+; : 388 63 25 4 rc 6 1 24 18 26 -5 388 68 F T 1 
+X
+doNimage
+FDF7F7DD002AF79CADF0BCC5E03954F6DBDF
+Z
+; : 421 63 29 4 rc 7 1 24 21 30 -5 421 68 F T 1 
+X
+doNimage
+F9F1F4E44362E77A8DFFFFFFEC8599DF183AFFFFFF
+Z
+; : 463 63 16 4 rc 4 1 24 12 17 -5 463 68 F T 1 
+X
+doNimage
+FFFFFFEC8599E3294BFDF7F7
+Z
+; : 517 63 8 4 rc 2 1 24 6 9 -5 517 68 F T 1 
+X
+doNimage
+FFFFFFFFFFFF
+Z
+; : 542 63 41 4 rc 10 1 24 30 42 -5 542 68 F T 1 
+X
+doNimage
+FCE9EDDE1832DF2A44F7DFE6FFFFFFFFFFFFF1A4AFE14361E45063F6CFD6
+Z
+; : 592 63 33 4 rc 8 1 24 24 34 -5 592 68 F T 1 
+X
+doNimage
+FFFFFFE54964E16A7FDE2447D90012D90012DF3B5AF7EEF0
+Z
+; : 633 63 17 4 rc 4 1 24 12 17 -5 633 68 F T 1 
+X
+doNimage
+FFFFFFDE2C4EE76C83FFFFFF
+Z
+; : 654 63 13 4 rc 3 1 24 9 13 -5 654 68 F T 1 
+X
+doNimage
+F9F7F8E4415BE98699
+Z
+; : 679 63 21 4 rc 5 1 24 15 21 -5 679 68 F T 1 
+X
+doNimage
+F3B0BCDD092ADE1031E54964F9F1F4
+Z
+; : 708 63 17 4 rc 4 1 24 12 17 -5 708 68 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 138 67 37 4 rc 9 1 24 27 38 -5 138 72 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFCE9EDF7E5E8FFFFFFFFFFFFF1A4AFDF2142F6D7DD
+Z
+; : 188 67 29 4 rc 7 1 24 21 30 -5 188 72 F T 1 
+X
+doNimage
+FFFFFFF3B0BCE17C8AE6637BE7748AF1BECAFFFFFF
+Z
+; : 225 67 29 4 rc 7 1 24 21 30 -5 225 72 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022F3C8D2E2516CE14361FDF7F7
+Z
+; : 263 67 20 4 rc 5 1 24 15 21 -5 263 72 F T 1 
+X
+doNimage
+EFA6B4DE2C4EF7E5E8E54C69E55A73
+Z
+; : 292 67 29 4 rc 7 1 24 21 30 -5 292 72 F T 1 
+X
+doNimage
+FDF7F7DE3252F394A4FFFFFFE98B9CE65E78FFFFFF
+Z
+; : 329 67 17 4 rc 4 1 24 12 17 -5 329 72 F T 1 
+X
+doNimage
+EEB5BFE3294BEEB5BFFFFFFF
+Z
+; : 350 67 29 4 rc 7 1 24 21 30 -5 350 72 F T 1 
+X
+doNimage
+FFFFFFF3B0BCDF294BDF3B5ADF3B5ADF3B5AFDEEF0
+Z
+; : 388 67 25 4 rc 6 1 24 18 26 -5 388 72 F T 1 
+X
+doNimage
+FFFFFFE03954EB6A82F0BCC5DF3B5AF6DBDF
+Z
+; : 421 67 29 4 rc 7 1 24 21 30 -5 421 72 F T 1 
+X
+doNimage
+F9F1F4E4415BE6637BF7EEF0E33953E14C69FFFFFF
+Z
+; : 463 67 16 4 rc 4 1 24 12 17 -5 463 72 F T 1 
+X
+doNimage
+FFFFFFE6637BDE3252FFFFFF
+Z
+; : 542 67 12 4 rc 3 1 24 9 13 -5 542 72 F T 1 
+X
+doNimage
+ED909EDE0021F3C8D2
+Z
+; : 563 67 20 4 rc 5 1 24 15 21 -5 563 72 F T 1 
+X
+doNimage
+F6D7DDDF294BE65E78E3294BE25972
+Z
+; : 592 67 33 4 rc 8 1 24 24 34 -5 592 72 F T 1 
+X
+doNimage
+FFFFFFE14C69E2516CEA9EACF3C8D2E65E78E03F5CF9F1F4
+Z
+; : 633 67 17 4 rc 4 1 24 12 17 -5 633 72 F T 1 
+X
+doNimage
+FCE9EDDF2142EE9DADFFFFFF
+Z
+; : 654 67 13 4 rc 3 1 24 9 13 -5 654 72 F T 1 
+X
+doNimage
+F6D7DDD90A30F6C0CA
+Z
+; : 675 67 25 4 rc 6 1 24 18 26 -5 675 72 F T 1 
+X
+doNimage
+FFFFFFDE2C4EEB5C74F5E9EDDF2142EFA6B4
+Z
+; : 708 67 17 4 rc 4 1 24 12 17 -5 708 72 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 158 71 17 4 rc 4 1 24 12 17 -5 158 76 F T 1 
+X
+doNimage
+FFFFFFEFA6B4DF183AF6D7DD
+Z
+; : 188 71 29 4 rc 7 1 24 21 30 -5 188 76 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF7EEF0F7EEF0F7E5E8F6DBDFFDF7F7
+Z
+; : 225 71 29 4 rc 7 1 24 21 30 -5 225 76 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022F9F1F4E6637BE04964FDF7F7
+Z
+; : 263 71 20 4 rc 5 1 24 15 21 -5 263 76 F T 1 
+X
+doNimage
+EEB5BFDE3252EECFD5E44362E65E78
+Z
+; : 292 71 29 4 rc 7 1 24 21 30 -5 292 76 F T 1 
+X
+doNimage
+FDF7F7E03954F394A4FFFFFFE98B9CE65E78FFFFFF
+Z
+; : 329 71 13 4 rc 3 1 24 9 13 -5 329 76 F T 1 
+X
+doNimage
+F3C8D2E4415BF6DBDF
+Z
+; : 350 71 63 4 rc 15 1 24 45 63 -5 350 76 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDF7F7FFFFFFFFFFFFE14C
+69E5526CE9AEB8E53B5BF6DBDF
+Z
+; : 421 71 25 4 rc 6 1 24 18 26 -5 421 76 F T 1 
+X
+doNimage
+F7EEF0E44362DE0021DE2447DE0021E98B9C
+Z
+; : 463 71 16 4 rc 4 1 24 12 17 -5 463 76 F T 1 
+X
+doNimage
+FFFFFFE5526CE53B5BFFFFFF
+Z
+; : 533 71 21 4 rc 5 1 24 15 21 -5 533 76 F T 1 
+X
+doNimage
+FFFFFFFFFFFFDF3B5AE55A73FFFFFF
+Z
+; : 563 71 20 4 rc 5 1 24 15 21 -5 563 76 F T 1 
+X
+doNimage
+FFFFFFE6637BE16A7FE7748ADF294B
+Z
+; : 592 71 16 4 rc 4 1 24 12 17 -5 592 76 F T 1 
+X
+doNimage
+FFFFFFDE3252EB6A82FFFFFF
+Z
+; : 613 71 12 4 rc 3 1 24 9 13 -5 613 76 F T 1 
+X
+doNimage
+E76C83E03F5CF9F1F4
+Z
+; : 633 71 34 4 rc 8 1 24 24 34 -5 633 76 F T 1 
+X
+doNimage
+F7E5E8E33250EF99A8FFFFFFFFFFFFF5B9C5D90A30F6DBDF
+Z
+; : 675 71 29 4 rc 7 1 24 21 30 -5 675 76 F T 1 
+X
+doNimage
+F6DBDFDF183AEC8599FFFFFFDF3B5AE7748AFFFFFF
+Z
+; : 708 71 17 4 rc 4 1 24 12 17 -5 708 76 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4EFDF7F7
+Z
+; : 158 75 17 4 rc 4 1 24 12 17 -5 158 80 F T 1 
+X
+doNimage
+FFFFFFF1A4AFDF183AF6D7DD
+Z
+; : 188 75 29 4 rc 7 1 24 21 30 -5 188 80 F T 1 
+X
+doNimage
+FFFFFFEF99A8E03954E03954DE2C4EDE2C4EF6DBDF
+Z
+; : 225 75 29 4 rc 7 1 24 21 30 -5 225 80 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022FCE9EDE65E78E04964FDF7F7
+Z
+; : 263 75 20 4 rc 5 1 24 15 21 -5 263 80 F T 1 
+X
+doNimage
+EEABB5DE2C4EEECFD5E44362E65E78
+Z
+; : 292 75 29 4 rc 7 1 24 21 30 -5 292 80 F T 1 
+X
+doNimage
+FFFFFFE6637BED798DFFFFFFE87B90EB6A82FFFFFF
+Z
+; : 329 75 13 4 rc 3 1 24 9 13 -5 329 80 F T 1 
+X
+doNimage
+F3C8D2E4415BF6D7DD
+Z
+; : 350 75 63 4 rc 15 1 24 45 63 -5 350 80 F T 1 
+X
+doNimage
+FFFFFFF0AEBBE65A6EE65E78E66A7DE65E78E55A73E7748AE66A7DE65E78DE12
+38E55A73E9AEB8E03F5CF6DBDF
+Z
+; : 421 75 25 4 rc 6 1 24 18 26 -5 421 80 F T 1 
+X
+doNimage
+FDF7F7E77A8DDF294BDE1238DE0021EF99A8
+Z
+; : 463 75 16 4 rc 4 1 24 12 17 -5 463 80 F T 1 
+X
+doNimage
+FFFFFFE75570DF3B5AFFFFFF
+Z
+; : 525 75 29 4 rc 7 1 24 21 30 -5 525 80 F T 1 
+X
+doNimage
+FFFFFFF9F7F8F1BECAF6DBDFE65E78DF2138FCE9ED
+Z
+; : 558 75 25 4 rc 6 1 24 18 26 -5 558 80 F T 1 
+X
+doNimage
+FFFFFFF9F1F4E14361E98699E66A7DDE3252
+Z
+; : 592 75 16 4 rc 4 1 24 12 17 -5 592 80 F T 1 
+X
+doNimage
+FFFFFFE03954EB6A82FFFFFF
+Z
+; : 613 75 12 4 rc 3 1 24 9 13 -5 613 80 F T 1 
+X
+doNimage
+E65E78E14361F9F1F4
+Z
+; : 633 75 17 4 rc 4 1 24 12 17 -5 633 80 F T 1 
+X
+doNimage
+F7E5E8DF2142EFA6B4FFFFFF
+Z
+; : 654 75 13 4 rc 3 1 24 9 13 -5 654 80 F T 1 
+X
+doNimage
+E98B9CDE2447F7E5E8
+Z
+; : 675 75 29 4 rc 7 1 24 21 30 -5 675 80 F T 1 
+X
+doNimage
+F6D7DDE33250EEABB5FFFFFFE14C69EC768BFFFFFF
+Z
+; : 708 75 13 4 rc 3 1 24 9 13 -5 708 80 F T 1 
+X
+doNimage
+FFFFFFE6637BDE2C4E
+Z
+; : 158 79 17 4 rc 4 1 24 12 17 -5 158 84 F T 1 
+X
+doNimage
+FFFFFFF1A4AFDF183AF6D7DD
+Z
+; : 188 79 29 4 rc 7 1 24 21 30 -5 188 84 F T 1 
+X
+doNimage
+FFFFFFEB637ADE0021EA95A5E54964DF1B40F6DBDF
+Z
+; : 225 79 29 4 rc 7 1 24 21 30 -5 225 84 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022FCE9EDE65E78E04964FDF7F7
+Z
+; : 263 79 20 4 rc 5 1 24 15 21 -5 263 84 F T 1 
+X
+doNimage
+EEABB5DE2C4EEFD6DBE54964E65E78
+Z
+; : 292 79 29 4 rc 7 1 24 21 30 -5 292 84 F T 1 
+X
+doNimage
+FFFFFFEE9DADDF294BF7DFE6DE3252EEABB5FFFFFF
+Z
+; : 329 79 13 4 rc 3 1 24 9 13 -5 329 84 F T 1 
+X
+doNimage
+EE9DADE3294BF1BECA
+Z
+; : 350 79 63 4 rc 15 1 24 45 63 -5 350 84 F T 1 
+X
+doNimage
+FFFFFFED798DD90007DF294BDD002ADC0019E76C83F6C6CFF5B9C5E14C69DC00
+0FE67386F0AEBBE33250F6DBDF
+Z
+; : 421 79 25 4 rc 6 1 24 18 26 -5 421 84 F T 1 
+X
+doNimage
+FFFFFFFDF7F7F6DBDFDE2447DE0021EEABB5
+Z
+; : 463 79 16 4 rc 4 1 24 12 17 -5 463 84 F T 1 
+X
+doNimage
+FFFFFFE5526CDF3B5AFFFFFF
+Z
+; : 517 79 66 4 rc 16 1 24 48 67 -5 517 84 F T 1 
+X
+doNimage
+FFFFFFF1B7C4E65E78E03F5CDE1832E68293F7E5E8DF183AE44362EA9EACEA9E
+ACE54964DE0021DE2447DD092AE03954
+Z
+; : 592 79 16 4 rc 4 1 24 12 17 -5 592 84 F T 1 
+X
+doNimage
+FFFFFFE03954EB6A82FFFFFF
+Z
+; : 613 79 12 4 rc 3 1 24 9 13 -5 613 84 F T 1 
+X
+doNimage
+E6637BE14361F9F1F4
+Z
+; : 633 79 34 4 rc 8 1 24 24 34 -5 633 84 F T 1 
+X
+doNimage
+F7E5E8E33250EE9DADFFFFFFFFFFFFEF94A4DF2142F7E5E8
+Z
+; : 675 79 29 4 rc 7 1 24 21 30 -5 675 84 F T 1 
+X
+doNimage
+F6D7DDE33250F1A4AFFFFFFFE33250EC768BFFFFFF
+Z
+; : 708 79 13 4 rc 3 1 24 9 13 -5 708 84 F T 1 
+X
+doNimage
+FFFFFFE6637BDE3252
+Z
+; : 158 83 17 5 rc 4 1 24 12 17 -5 158 88 F T 1 
+X
+doNimage
+FFFFFFEE9DADDF183AF6D7DD
+Z
+; : 188 83 29 5 rc 7 1 24 21 30 -5 188 88 F T 1 
+X
+doNimage
+FFFFFFE65E78E44362FFFFFFEF99A8E33250F6DBDF
+Z
+; : 225 83 29 5 rc 7 1 24 21 30 -5 225 88 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022FCE9EDE65E78E04964FDF7F7
+Z
+; : 263 83 25 5 rc 6 1 24 18 26 -5 263 88 F T 1 
+X
+doNimage
+EFA6B4DE2C4EEFC6CEE33953E76C83FFFFFF
+Z
+; : 296 83 21 5 rc 5 1 24 15 21 -5 296 88 F T 1 
+X
+doNimage
+F9F1F4E6637BDE1238E76074F9F7F8
+Z
+; : 325 83 21 5 rc 5 1 24 15 21 -5 325 88 F T 1 
+X
+doNimage
+FFFFFFED798DD90012EF99A8FFFFFF
+Z
+; : 350 83 29 5 rc 7 1 24 21 30 -5 350 88 F T 1 
+X
+doNimage
+FFFFFFEE9DADDE092FF7DFE6DE304AE76C83FFFFFF
+Z
+; : 388 83 25 5 rc 6 1 24 18 26 -5 388 88 F T 1 
+X
+doNimage
+FDF7F7DF2A44DF183ADF2142E65E78F7EEF0
+Z
+; : 417 83 29 5 rc 7 1 24 21 30 -5 417 88 F T 1 
+X
+doNimage
+FFFFFFF9F1F4F6C0CAE65E78DD002ADD002AEEABB5
+Z
+; : 463 83 16 5 rc 4 1 24 12 17 -5 463 88 F T 1 
+X
+doNimage
+FFFFFFE6637BDF2142FFFFFF
+Z
+; : 513 83 75 5 rc 18 1 24 54 76 -5 513 88 F T 1 
+X
+doNimage
+FFFFFFF1BECADE1238DF2142E53B5BDE1238E25972F7EEF0E03954DD092AE54C
+69E65E78E98B9CF1B7C4EF99A8E6637BE76C83FDF7F7
+Z
+; : 592 83 16 5 rc 4 1 24 12 17 -5 592 88 F T 1 
+X
+doNimage
+FFFFFFDE3252EB6A82FFFFFF
+Z
+; : 613 83 12 5 rc 3 1 24 9 13 -5 613 88 F T 1 
+X
+doNimage
+E6637BE14361F9F1F4
+Z
+; : 633 83 34 5 rc 8 1 24 24 34 -5 633 88 F T 1 
+X
+doNimage
+F7E5E8DE2447E65E78E77A8DF0AEBBF6C0CADE3252F7E5E8
+Z
+; : 675 83 29 5 rc 7 1 24 21 30 -5 675 88 F T 1 
+X
+doNimage
+FCE9EDDF294BEC8599FFFFFFDF2142EA919FFFFFFF
+Z
+; : 708 83 21 5 rc 5 1 24 15 21 -5 708 88 F T 1 
+X
+doNimage
+FFFFFFE6637BE03F5CFBDDE2FCE9ED
+Z
+; : 158 88 17 4 rc 4 1 24 12 17 -5 158 93 F T 1 
+X
+doNimage
+FFFFFFEC8599DE1031F6D7DD
+Z
+; : 188 88 29 4 rc 7 1 24 21 30 -5 188 93 F T 1 
+X
+doNimage
+FFFFFFE75570E44362FFFFFFEA95A5DE3252F6DBDF
+Z
+; : 225 88 29 4 rc 7 1 24 21 30 -5 225 93 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022FCE9EDE65E78E04964FDF7F7
+Z
+; : 263 88 25 4 rc 6 1 24 18 26 -5 263 93 F T 1 
+X
+doNimage
+F1B7C4DE1031DF2142DE0021E77A8DFFFFFF
+Z
+; : 296 88 21 4 rc 5 1 24 15 21 -5 296 93 F T 1 
+X
+doNimage
+FFFFFFF7E5E8E98B9CF6DBDFFFFFFF
+Z
+; : 325 88 21 4 rc 5 1 24 15 21 -5 325 93 F T 1 
+X
+doNimage
+F7E5E8DF1B40D90012E75570FDF7F7
+Z
+; : 354 88 25 4 rc 6 1 24 18 26 -5 354 93 F T 1 
+X
+doNimage
+F6DBDFE33250E25972DE2447E66A7DFFFFFF
+Z
+; : 388 88 58 4 rc 14 1 24 42 59 -5 388 93 F T 1 
+X
+doNimage
+F7EEF0DF1B40DE1238ED909EFFFFFFFFFFFFF6D7DDED909EDE304AD90022E65E
+78EA9EACDE1238EA95A5
+Z
+; : 463 88 16 4 rc 4 1 24 12 17 -5 463 93 F T 1 
+X
+doNimage
+FFFFFFED909EE3294BF9F1F4
+Z
+; : 513 88 75 4 rc 18 1 24 54 76 -5 513 93 F T 1 
+X
+doNimage
+FFFFFFEC7D92DE2447F2D3D9FFFFFFED798DDE1832DE2447DF2A44F0AEBBFFFF
+FFFFFFFFFFFFFFF6CFD6EEABB5F2D3D9F9F7F8FFFFFF
+Z
+; : 592 88 16 4 rc 4 1 24 12 17 -5 592 93 F T 1 
+X
+doNimage
+FFFFFFDF3B5AEC768BFFFFFF
+Z
+; : 613 88 12 4 rc 3 1 24 9 13 -5 613 93 F T 1 
+X
+doNimage
+E65E78E14361F9F1F4
+Z
+; : 633 88 34 4 rc 8 1 24 24 34 -5 633 93 F T 1 
+X
+doNimage
+F9F1F4DF183ADC0019DE0021F0AEBBF7DFE6DE2C4EF6BBC5
+Z
+; : 675 88 25 4 rc 6 1 24 18 26 -5 675 93 F T 1 
+X
+doNimage
+FFFFFFE7748AE53B5BE98B9CDF2142F6DBDF
+Z
+; : 708 88 21 4 rc 5 1 24 15 21 -5 708 93 F T 1 
+X
+doNimage
+FFFFFFE65E78D90019DE3252E67386
+Z
+; : 158 92 17 4 rc 4 1 24 12 17 -5 158 97 F T 1 
+X
+doNimage
+FFFFFFE98B9CDE1238FDEFF3
+Z
+; : 188 92 29 4 rc 7 1 24 21 30 -5 188 97 F T 1 
+X
+doNimage
+FFFFFFE54964E54964FFFFFFEA95A5DE3252F6DBDF
+Z
+; : 225 92 29 4 rc 7 1 24 21 30 -5 225 97 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022F9F1F4E76C83DF3B5AFDF7F7
+Z
+; : 263 92 25 4 rc 6 1 24 18 26 -5 263 97 F T 1 
+X
+doNimage
+F9F1F4E67386E76074DF2142E67386FFFFFF
+Z
+; : 304 92 4 4 rc 1 1 24 3 5 -5 304 97 F T 1 
+X
+doNimage
+FFFFFF
+Z
+; : 321 92 29 4 rc 7 1 24 21 30 -5 321 97 F T 1 
+X
+doNimage
+FDF7F7E54964DE3252E98B9CDC0019EF99A8FFFFFF
+Z
+; : 354 92 25 4 rc 6 1 24 18 26 -5 354 97 F T 1 
+X
+doNimage
+FFFFFFEA95A5DD002ADD002ADE2447FDEEF0
+Z
+; : 383 92 63 4 rc 15 1 24 45 63 -5 383 97 F T 1 
+X
+doNimage
+FFFFFFE87B90DE0021DE3252EECFD5EC8599E54964E33250DE1031E6637BF1BE
+CAFFFFFFFFFFFFE04964E67386
+Z
+; : 467 92 12 4 rc 3 1 24 9 13 -5 467 97 F T 1 
+X
+doNimage
+F3C8D2E33250EEABB5
+Z
+; : 513 92 12 4 rc 3 1 24 9 13 -5 513 97 F T 1 
+X
+doNimage
+FFFFFFE14361E5526C
+Z
+; : 529 92 21 4 rc 5 1 24 15 21 -5 529 97 F T 1 
+X
+doNimage
+FFFFFFEE9DADD90012DF1B40F7DFE6
+Z
+; : 558 92 25 4 rc 6 1 24 18 26 -5 558 97 F T 1 
+X
+doNimage
+F9F7F8E6637BDE2447E03F5CD90A30F0AEBB
+Z
+; : 592 92 16 4 rc 4 1 24 12 17 -5 592 97 F T 1 
+X
+doNimage
+FFFFFFE03F5CE98699FFFFFF
+Z
+; : 613 92 12 4 rc 3 1 24 9 13 -5 613 97 F T 1 
+X
+doNimage
+E7748AE03F5CF9F1F4
+Z
+; : 633 92 34 4 rc 8 1 24 24 34 -5 633 97 F T 1 
+X
+doNimage
+FFFFFFF0AEBBE77A8DDE1031EEABB5FFFFFFE54964E67386
+Z
+; : 679 92 21 4 rc 5 1 24 15 21 -5 679 97 F T 1 
+X
+doNimage
+F9F1F4E6637BDD002AE98699FFFFFF
+Z
+; : 708 92 21 4 rc 5 1 24 15 21 -5 708 97 F T 1 
+X
+doNimage
+FFFFFFF0AEBBF1A4AFF1A4AFE66A7D
+Z
+; : 158 96 17 4 rc 4 1 24 12 17 -5 158 101 F T 1 
+X
+doNimage
+FFFFFFEC8599DF183AF7DFE6
+Z
+; : 188 96 29 4 rc 7 1 24 21 30 -5 188 101 F T 1 
+X
+doNimage
+FFFFFFE54C69E54964FFFFFFEA95A5E53B5BFDF7F7
+Z
+; : 225 96 29 4 rc 7 1 24 21 30 -5 225 101 F T 1 
+X
+doNimage
+FFFFFFEFA6B4D90022EFA6B4DE304AE67386FFFFFF
+Z
+; : 263 96 25 4 rc 6 1 24 18 26 -5 263 101 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF5E9EDE53B5BE76C83FFFFFF
+Z
+; : 292 96 62 4 rc 15 1 24 45 63 -5 292 101 F T 1 
+X
+doNimage
+FFFFFFF7E5E8F6DBDFFFFFFFFFFFFFFDF7F7EFC6CEE45063DD092AF6C6CFFFFF
+FFE66A7DDD0922EE9DADFFFFFF
+Z
+; : 363 96 12 4 rc 3 1 24 9 13 -5 363 101 F T 1 
+X
+doNimage
+F1B7C4E98B9CF6D7DD
+Z
+; : 379 96 50 4 rc 12 1 24 36 51 -5 379 101 F T 1 
+X
+doNimage
+FFFFFFEF99A8D90022DC0019D90022E33250E53B5BE04964EE9DADFDEEF0FFFF
+FFFFFFFF
+Z
+; : 433 96 17 4 rc 4 1 24 12 17 -5 433 101 F T 1 
+X
+doNimage
+FFFFFFE76074E2516CFFFFFF
+Z
+; : 467 96 16 4 rc 4 1 24 12 17 -5 467 101 F T 1 
+X
+doNimage
+FFFFFFDE2C4EE65E78FFFFFF
+Z
+; : 513 96 33 4 rc 8 1 24 24 34 -5 513 101 F T 1 
+X
+doNimage
+FBDDE2D90019EE9DADFFFFFFFFFFFFEC7D92DE0021EA95A5
+Z
+; : 554 96 29 4 rc 7 1 24 21 30 -5 554 101 F T 1 
+X
+doNimage
+FFFFFFEC7D92DE1238FBDDE2EFA6B4DF2142F7D4DA
+Z
+; : 592 96 33 4 rc 8 1 24 24 34 -5 592 101 F T 1 
+X
+doNimage
+FFFFFFE03954EB637AF9F1F4F9F1F4E5526CDF3B5AF9F1F4
+Z
+; : 633 96 38 4 rc 9 1 24 27 38 -5 633 101 F T 1 
+X
+doNimage
+FFFFFFFFFFFFF0BCC5D90022EA9EACFFFFFFEF99A8DE1031FCE9ED
+Z
+; : 683 96 13 4 rc 3 1 24 9 13 -5 683 101 F T 1 
+X
+doNimage
+FFFFFFFCE9EDFFFFFF
+Z
+; : 713 96 16 4 rc 4 1 24 12 17 -5 713 101 F T 1 
+X
+doNimage
+FFFFFFFFFFFFED798DE66B73
+Z
+; : 158 100 17 4 rc 4 1 24 12 17 -5 158 105 F T 1 
+X
+doNimage
+FFFFFFEF99A8DF1B40F6DBDF
+Z
+; : 188 100 29 4 rc 7 1 24 21 30 -5 188 105 F T 1 
+X
+doNimage
+FFFFFFE5526CE54964FFFFFFEA95A5E53B5BFFFFFF
+Z
+; : 225 100 25 4 rc 6 1 24 18 26 -5 225 105 F T 1 
+X
+doNimage
+FFFFFFF0AEBBD90022D90012DF294BFCE9ED
+Z
+; : 254 100 34 4 rc 8 1 24 24 34 -5 254 105 F T 1 
+X
+doNimage
+FFFFFFF6DBDFF1A4AFE55A73DE2447DE0021E76C83FFFFFF
+Z
+; : 292 100 41 4 rc 10 1 24 30 42 -5 292 105 F T 1 
+X
+doNimage
+FFFFFFEA95A5DF183AE2516CE65E78E03F5CD90022E24354F6C0CAFFFFFF
+Z
+; : 338 100 75 4 rc 18 1 24 54 76 -5 338 105 F T 1 
+X
+doNimage
+F9F1F4E65E78DC0019ED798DF6D7DDFFFFFFFFFFFFFFFFFFFFFFFFF6D7DDE760
+74D90019E03954E55A73EC8599F0BCC5F9F1F4FFFFFF
+Z
+; : 433 100 17 4 rc 4 1 24 12 17 -5 433 105 F T 1 
+X
+doNimage
+FFFFFFEC7D92DF294BFFFFFF
+Z
+; : 471 100 12 4 rc 3 1 24 9 13 -5 471 105 F T 1 
+X
+doNimage
+F0AEBBDF183AF7D4DA
+Z
+; : 508 100 38 4 rc 9 1 24 27 38 -5 508 105 F T 1 
+X
+doNimage
+FFFFFFE25972DE2447F6DBDFFFFFFFFDF7F7E6637BDD002AF7E5E8
+Z
+; : 554 100 25 4 rc 6 1 24 18 26 -5 554 105 F T 1 
+X
+doNimage
+FDF7F7DF3B5AE3324BE87B90DE092FEF94A4
+Z
+; : 592 100 29 4 rc 7 1 24 21 30 -5 592 105 F T 1 
+X
+doNimage
+FFFFFFE76C83E14361E16A7FDE3252DF2A44F0AEBB
+Z
+; : 625 100 29 4 rc 7 1 24 21 30 -5 625 105 F T 1 
+X
+doNimage
+FFFFFFF9F1F4F3B0BCE5526CD90022E4415BF2D3D9
+Z
+; : 658 100 21 4 rc 5 1 24 15 21 -5 658 105 F T 1 
+X
+doNimage
+F7EEF0E54964E3324BF7D4DAFFFFFF
+Z
+; : 688 100 12 4 rc 3 1 24 9 13 -5 688 105 F T 1 
+X
+doNimage
+FFFFFFF6CFD6FFFFFF
+Z
+; : 704 100 25 4 rc 6 1 24 18 26 -5 704 105 F T 1 
+X
+doNimage
+FFFFFFF9F7F8EFA6B4DF2A44E33953F1A4AF
+Z
+; : 154 104 21 4 rc 5 1 24 15 21 -5 154 109 F T 1 
+X
+doNimage
+F6DBDFF1BECAE87B90DF1B40F6DBDF
+Z
+; : 188 104 29 4 rc 7 1 24 21 30 -5 188 109 F T 1 
+X
+doNimage
+FFFFFFE54C69E54C69FFFFFFEF99A8E53B5BFFFFFF
+Z
+; : 229 104 59 4 rc 14 1 24 42 59 -5 229 109 F T 1 
+X
+doNimage
+FDEEF0EFA6B4DE1031E65E78F7EEF0EF99A8EB637ADE304ADE1238E55A73EEAB
+B5DE2447E5526CFFFFFF
+Z
+; : 292 104 37 4 rc 9 1 24 27 38 -5 292 109 F T 1 
+X
+doNimage
+FFFFFFEF99A8DE0021E55A73E55A73E2516CF1A4AFF9F7F8FFFFFF
+Z
+; : 342 104 58 4 rc 14 1 24 42 59 -5 342 109 F T 1 
+X
+doNimage
+F9F7F8E7748AD90022DF2142E6637BEC8599EC7D92E65E78DF2A44D90022ED90
+9EF7DFE6FFFFFFFFFFFF
+Z
+; : 433 104 17 4 rc 4 1 24 12 17 -5 433 109 F T 1 
+X
+doNimage
+FFFFFFEEB5BFDF2142F7D4DA
+Z
+; : 471 104 17 4 rc 4 1 24 12 17 -5 471 109 F T 1 
+X
+doNimage
+FFFFFFE54964E33953F7E5E8
+Z
+; : 504 104 21 4 rc 5 1 24 15 21 -5 504 109 F T 1 
+X
+doNimage
+FFFFFFE98B9CDE092FEEABB5FFFFFF
+Z
+; : 529 104 17 4 rc 4 1 24 12 17 -5 529 109 F T 1 
+X
+doNimage
+F6DBDFDE1238DE1238F7E5E8
+Z
+; : 554 104 29 4 rc 7 1 24 21 30 -5 554 109 F T 1 
+X
+doNimage
+FFFFFFF1BECADE304ADE304AEFA6B4F9F7F8FFFFFF
+Z
+; : 592 104 62 4 rc 15 1 24 45 63 -5 592 109 F T 1 
+X
+doNimage
+FFFFFFF7EEF0F7EEF0EC768BDE1238FFFFFFFFFFFFF1BECAEC7D92E4415BDD00
+2AE03954EE9DADF9F1F4FFFFFF
+Z
+; : 658 104 71 4 rc 17 1 24 51 71 -5 658 109 F T 1 
+X
+doNimage
+FFFFFFFCE9EDE14361DE1832ED798DEF99A8ED909EEB6A82DE1031EA9EACF9F1
+F4E98B9CE4415BDF183AF18B9DFCE9EDFFFFFF
+Z
+; : 154 108 21 5 rc 5 1 24 15 21 -5 154 113 F T 1 
+X
+doNimage
+EEB5BFDF183ADE092FDF3B5AF7DFE6
+Z
+; : 188 108 29 5 rc 7 1 24 21 30 -5 188 113 F T 1 
+X
+doNimage
+FFFFFFE54C69DE1031F0AEBBDE3252DE3252FFFFFF
+Z
+; : 229 108 59 5 rc 14 1 24 42 59 -5 229 113 F T 1 
+X
+doNimage
+FFFFFFFFFFFFE14C69D90022DE2C4EDE2C4EDF3B5AEA9EACF7E5E8FFFFFFF6DB
+DFDE1031E5526CFFFFFF
+Z
+; : 292 108 29 5 rc 7 1 24 21 30 -5 292 113 F T 1 
+X
+doNimage
+FFFFFFEA95A5D90007EFA6B4F9F1F4FFFFFFFFFFFF
+Z
+; : 346 108 42 5 rc 10 1 24 30 42 -5 346 113 F T 1 
+X
+doNimage
+FFFFFFF6D7DDE66A7DDE2C4EDE2C4EDF2142E14361E98699F3C8D2FFFFFF
+Z
+; : 438 108 16 5 rc 4 1 24 12 17 -5 438 113 F T 1 
+X
+doNimage
+F9F1F4E33953E87B90FFFFFF
+Z
+; : 475 108 46 5 rc 11 1 24 33 46 -5 475 113 F T 1 
+X
+doNimage
+F7E5E8E4415BDF2138E68293F7DFE6FDF7F7F1BECAE04964DF183AE98699FFFF
+FF
+Z
+; : 525 108 21 5 rc 5 1 24 15 21 -5 525 113 F T 1 
+X
+doNimage
+FFFFFFEA919FDD092ADE1238EEABB5
+Z
+; : 558 108 88 5 rc 21 1 24 63 88 -5 558 113 F T 1 
+X
+doNimage
+FFFFFFFDF7F7FFFFFFFFFFFFE67386EE9DADF7DFE6F0AEBBEA9EACEA9EACEFA6
+B4E14361DD002AE55A73E03954E03954DF1B40E6637BF6CFD6F9F7F8FFFFFF
+Z
+; : 663 108 58 5 rc 14 1 24 42 59 -5 663 113 F T 1 
+X
+doNimage
+FFFFFFF9F7F8EA919FE03954E03954E03954E03F5CE66A7DDE2C4EE03F5CDE24
+47EC8599F7E5E8FFFFFF
+Z
+; : 154 113 21 4 rc 5 1 24 15 21 -5 154 118 F T 1 
+X
+doNimage
+EEB5BFDE092FE6637BF6CFD6FFFFFF
+Z
+; : 188 113 70 4 rc 17 1 24 51 71 -5 188 118 F T 1 
+X
+doNimage
+FFFFFFEF99A8DF183ADE0021DF2142EF94A4FFFFFFFFFFFFFFFFFFF6DBDFEF94
+A4DE2C4EDF2142E5526CE68293F6DBDFFFFFFF
+Z
+; : 267 113 21 4 rc 5 1 24 15 21 -5 267 118 F T 1 
+X
+doNimage
+EE9DADD90012DE304AF0AEBBFFFFFF
+Z
+; : 296 113 21 4 rc 5 1 24 15 21 -5 296 118 F T 1 
+X
+doNimage
+F7D4DAE54964DE0021E44362FFFFFF
+Z
+; : 358 113 17 4 rc 4 1 24 12 17 -5 358 118 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFFFFFFFF
+Z
+; : 438 113 20 4 rc 5 1 24 15 21 -5 438 118 F T 1 
+X
+doNimage
+FFFFFFE76C83DF294BF7EEF0FFFFFF
+Z
+; : 475 113 42 4 rc 10 1 24 30 42 -5 475 118 F T 1 
+X
+doNimage
+FFFFFFF7E5E8E54964DE2A3DDE1238DE2C4EDE1238E54964F1B7C4FFFFFF
+Z
+; : 521 113 108 4 rc 26 1 24 78 109 -5 521 118 F T 1 
+X
+doNimage
+FFFFFFF7DFE6DE1238E98B9CE75570DF183AEFC6CEFFFFFFFFFFFFFFFFFFF9F7
+F8F6BBC5DF3B5ADE1031D90022DE3252DE3252DF3B5ADE3252DE3252DE3252DE
+3252E54964E65E78F0BCC5FFFFFF
+Z
+; : 675 113 17 4 rc 4 1 24 12 17 -5 675 118 F T 1 
+X
+doNimage
+FFFFFFF7E5E8FCE9EDFFFFFF
+Z
+; : 696 113 12 4 rc 3 1 24 9 13 -5 696 118 F T 1 
+X
+doNimage
+F0BCC5E98699F9F1F4
+Z
+; : 154 117 29 4 rc 7 1 24 21 30 -5 154 122 F T 1 
+X
+doNimage
+EEB5BFDE1031EF99A8F9F7F8FFFFFFFFFFFFFFFFFF
+Z
+; : 192 117 58 4 rc 14 1 24 42 59 -5 192 122 F T 1 
+X
+doNimage
+FFFFFFF6CFD6DD0922F0BCC5FFFFFFF3C8D2EC8599E76074DE2447DE2447EE82
+95F1B7C4FFFFFFFFFFFF
+Z
+; : 267 117 50 4 rc 12 1 24 36 51 -5 267 122 F T 1 
+X
+doNimage
+EE8295E3324BF5E9EDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7748AE441
+5BF9F7F8
+Z
+; : 442 117 16 4 rc 4 1 24 12 17 -5 442 122 F T 1 
+X
+doNimage
+F7DFE6DE1031EC7D92FFFFFF
+Z
+; : 483 117 30 4 rc 7 1 24 21 30 -5 483 122 F T 1 
+X
+doNimage
+FFFFFFF3C8D2EF99A8F18B9DF1B7C4FFFFFFFFFFFF
+Z
+; : 521 117 100 4 rc 24 1 24 72 101 -5 521 122 F T 1 
+X
+doNimage
+F9F7F8E54964E54964FDF7F7F7E5E8DF2142DD0E2BED798DEE8295EC768BE441
+5BD90022E76C83F6CFD6EEB5BFF6C6CFF6CFD6F6D7DDF6CFD6F6D7DDF7D4DAF6
+D7DDFFFFFFFFFFFF
+Z
+; : 154 121 84 4 rc 20 1 24 60 84 -5 154 126 F T 1 
+X
+doNimage
+EFC6CEDF294BDF2142E4415BE4415BE54C69E76C83E76C83E68293E98699E663
+7BDD002AE33250E54964E03954E03954E76C83F1B7C4F9F1F4FFFFFF
+Z
+; : 267 121 50 4 rc 12 1 24 36 51 -5 267 126 F T 1 
+X
+doNimage
+EE8295DD0E2BE76C83E14C69E55A73E55A73E55A73E75570E67386E03F5CE339
+53F9F7F8
+Z
+; : 442 121 21 4 rc 5 1 24 15 21 -5 442 126 F T 1 
+X
+doNimage
+FFFFFFE87B90DC0019EF99A8FFFFFF
+Z
+; : 492 121 12 4 rc 3 1 24 9 13 -5 492 126 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFF
+Z
+; : 517 121 66 4 rc 16 1 24 48 67 -5 517 126 F T 1 
+X
+doNimage
+F9F7F8E65E78DE1238F3C8D2FFFFFFFFFFFFF7DFE6E66A7DDE2447DF1B40DF1B
+40E66A7DF7D4DAFFFFFFFFFFFFFFFFFF
+Z
+; : 154 125 71 4 rc 17 1 24 51 71 -5 154 130 F T 1 
+X
+doNimage
+FFFFFFFDEFF3F0BCC5E98B9CE6637BE5526CE44362E54C69E54C69E54C69E54C
+69EB6A82E65E78EA9EACF6DBDFFDF7F7FFFFFF
+Z
+; : 267 125 50 4 rc 12 1 24 36 51 -5 267 130 F T 1 
+X
+doNimage
+F0AEBBE4415BE54964E54C69E6637BE6637BE6637BE65E78E5526CE4415BEC76
+8BF9F7F8
+Z
+; : 446 125 21 4 rc 5 1 24 15 21 -5 446 130 F T 1 
+X
+doNimage
+F9F1F4E54C69DC0019EA95A5FFFFFF
+Z
+; : 508 125 21 4 rc 5 1 24 15 21 -5 508 130 F T 1 
+X
+doNimage
+FFFFFFF7DFE6E24354DE1832F0AEBB
+Z
+; : 546 125 17 4 rc 4 1 24 12 17 -5 546 130 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFDF7F7FFFFFF
+Z
+; : 171 129 37 4 rc 9 1 24 27 38 -5 171 134 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+Z
+; : 267 129 50 4 rc 12 1 24 36 51 -5 267 134 F T 1 
+X
+doNimage
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+FFFFFFFF
+Z
+; : 450 129 25 4 rc 6 1 24 18 26 -5 450 134 F T 1 
+X
+doNimage
+FCE9EDE6637BDC0019E77A8DF6DBDFFFFFFF
+Z
+; : 500 129 25 4 rc 6 1 24 18 26 -5 500 134 F T 1 
+X
+doNimage
+FFFFFFF7E5E8E98B9CDE1031DE2A3DF1BECA
+Z
+; : 450 133 71 5 rc 17 1 24 51 71 -5 450 138 F T 1 
+X
+doNimage
+FFFFFFFFFFFFEA919FDF1B40DE304AE6637BEA9EACEFC6CEF6D7DDF2D3D9F1BE
+CAE98B9CE6637BDE304ADE092FE66A7DF7E5E8
+Z
+; : 458 138 59 4 rc 14 1 24 42 59 -5 458 143 F T 1 
+X
+doNimage
+FFFFFFF7E5E8E77A8DDF294BE33953E33953E33953E33250E33250E33250E332
+50E7748AF7DFE6FFFFFF
+Z
+; : 471 142 37 4 rc 9 1 24 27 38 -5 471 147 F T 1 
+X
+doNimage
+F9F7F8F6CFD6EEB5BFEE9DADF1A4AFF1BECAF6CFD6F9F7F8FFFFFF
+Z
+; : 0 0 2459 3195 rc pagesave restore
+Pscript_Win_Driver_Incr begin
+%%BeginResource: file Pscript_Win_Encoding 2.0 0
+/bullets{{/bullet}repeat}b/ANSIEncoding[/grave/acute/circumflex/tilde/macron
+/breve/dotaccent/dieresis/ring/cedilla/hungarumlaut/ogonek/caron/dotlessi 18
+bullets StandardEncoding 32 95 getinterval aload ! 3 bullets/quotesinglbase
+/florin/quotedblbase/ellipsis/dagger/daggerdbl/circumflex/perthousand/Scaron
+/guilsinglleft/OE 4 bullets/quoteleft/quoteright/quotedblleft/quotedblright
+/bullet/endash/emdash/tilde/trademark/scaron/guilsinglright/oe 2 bullets
+/Ydieresis/space/exclamdown/cent/sterling/currency/yen/brokenbar/section
+/dieresis/copyright/ordfeminine/guillemotleft/logicalnot/hyphen/registered
+/macron/degree/plusminus/twosuperior/threesuperior/acute/mu/paragraph
+/periodcentered/cedilla/onesuperior/ordmasculine/guillemotright/onequarter
+/onehalf/threequarters/questiondown/Agrave/Aacute/Acircumflex/Atilde/Adieresis
+/Aring/AE/Ccedilla/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute
+/Icircumflex/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute/Thorn/germandbls
+/agrave/aacute/acircumflex/atilde/adieresis/aring/ae/ccedilla/egrave/eacute
+/ecircumflex/edieresis/igrave/iacute/icircumflex/idieresis/eth/ntilde/ograve
+/oacute/ocircumflex/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex
+/udieresis/yacute/thorn/ydieresis]| ANSIEncoding @ 39/quotesingle put 96/grave
+put/ANSIEncodingOld ANSIEncoding 256 array copy | ANSIEncodingOld @[138 153
+154 169 172 174 177 178 179 181 185 188 189 190 208 215 221 222 240 247 253
+254]{/bullet put @}forall 166/bar put 176/ring put
+%%EndResource
+
+%%BeginResource: file Pscript_Win_Text 2.0 0
+/TextInit{TextInitialised? not{/Pscript_Windows_Font & |/TextInitialised? T |
+/fM[1 0 0 -1 0 0]|/mFM matrix |/iMat[1 0 0.212557 neg 1 0 0]|}if}b/xUP null |
+/yUP null |/uW null |/xSP null |/ySP null |/sW null |/copyfont{1 ^ length add
+dict `{1 ^/FID ne{|}{! !}?}forall & E}b/rF{3 copyfont @ `/Encoding
+ANSIEncoding &/CharStrings known{CharStrings/Eth known not{! ANSIEncodingOld}
+if}if | E}b/mF{findfont ~{@/Encoding get @ StandardEncoding eq{! T}{{
+ISOLatin1Encoding}stopped{! F}{eq}?{T}{@ ` T 32 1 127{Encoding 1 ^ get
+StandardEncoding 3 -1 $ get eq and}for E}?}?}{F}?{rF}{3 copyfont}? `
+/OrigFontType ~ |/OrigFontName ~ | & E 2 ^ ~ definefont fM 5 4 -1 $ put fM 4 0
+put fM makefont Pscript_Windows_Font 3 1 $ put}b/xF{scalefont
+Pscript_Windows_Font 3 1 $ put}b/xMF{mFM astore makefont Pscript_Windows_Font
+3 1 $ put}b/xF2/scalefont , |/xMF2{mFM astore makefont}b/sLT{: Lw -M
+currentpoint snap M 0 - 0 Lc K ;}b/sSU{N/uW ~ |/yUP ~ |/xUP ~ |}b/sU{xUP yUP
+uW sLT}b/sST{N/sW ~ |/ySP ~ |/xSP ~ |}b/sT{xSP ySP sW sLT}b/sR{: + R 0 0 M}b
+/sRxy{: matrix astore concat 0 0 M}b/eR/; , |
+%%EndResource
+
+end reinitialize
+userdict begin /pagesave save def end mysetup concat colspRefresh 
+: 0 0 0 sco 1 Lc 1 Lj solid 0 0 2459 3195 rc 0 0 0 sco %%IncludeFont: Courier-Bold
+(F0) cvn
+0.788 
+ (Courier-Bold) cvn /Type1 
+T 
+(Courier-Bold) cvn
+mF 
+(F0_33) cvn
+F0
+33 
+xF 
+F0_33
+Ji 
+0 212 M 
+0.200 0 (trade_name384015109999001)A 
+; : 0 252 2222 36 rc 0 0 0 sco %%IncludeFont: Courier
+(F2) cvn
+0.818 
+ (Courier) cvn /Type1 
+T 
+(Courier) cvn
+mF 
+(F2_33) cvn
+F2
+33 
+xF 
+F2_33
+Ji 
+0 252 M 
+0.200 0 (Belgrano 1586 Belgrano 1586 Belgrano 1586 Belgrano 1586 Belgrano 1586 Belgrano 1586 Belgrano 1586 Be)A 
+; : 0 294 726 36 rc 0 0 0 sco F2_33
+Ji 
+0 294 M 
+0.200 0 (ESTABELECIMENTO: 384015109999001)A 
+; : 0 377 242 36 rc 0 0 0 sco F2_33
+Ji 
+0 377 M 
+0.200 0 (17/10/2003)A 
+; : 353 377 154 36 rc 0 0 0 sco F2_33
+Ji 
+375 377 M 
+0.200 0 (18:04)A 
+; : 586 377 308 36 rc 0 0 0 sco F2_33
+Ji 
+608 377 M 
+0.200 0 (TER=50099999)A 
+; : 0 419 264 36 rc 0 0 0 sco F2_33
+Ji 
+0 419 M 
+0.200 0 (LOTE=000015)A 
+; : 303 419 264 36 rc 0 0 0 sco F2_33
+Ji 
+325 419 M 
+0.200 0 (DOC=510699)A 
+; : 0 461 308 36 rc 0 0 0 sco F2_33
+Ji 
+0 461 M 
+0.200 0 (AUTE=4BA62C98)A 
+; : 74 586 770 36 rc 0 0 0 sco F2_33
+Ji 
+96 586 M 
+0.200 0 (RESUMO DE COMPROVANTE DE DEPOSITO)A 
+; : 0 669 528 36 rc 0 0 0 sco F2_33
+Ji 
+0 669 M 
+0.200 0 (TOTAL GERAL HIPERCARD *)A 
+; : 0 711 374 36 rc 0 0 0 sco F2_33
+Ji 
+0 711 M 
+0.200 0 (PARC  QTD  VALOR)A 
+; : 0 752 572 36 rc 0 0 0 sco F2_33
+Ji 
+0 752 M 
+0.200 0 (01    003        R$ 24,00)A 
+; : 0 794 572 36 rc 0 0 0 sco F2_33
+Ji 
+0 794 M 
+0.200 0 (TOTAL 003        R$ 24,00)A 
+; : 0 836 572 36 rc 0 0 0 sco F2_33
+Ji 
+0 836 M 
+0.200 0 (      -------------------)A 
+; : 0 877 572 36 rc 0 0 0 sco F2_33
+Ji 
+0 877 M 
+0.200 0 (ESTOR 003      R$ 1237,00)A 
+; : 0 961 616 36 rc 0 0 0 sco F2_33
+Ji 
+0 961 M 
+0.200 0 (* TOTAL GERAL HIPERCARD N\303O)A 
+; : 0 1002 638 36 rc 0 0 0 sco F2_33
+Ji 
+0 1002 M 
+0.200 0 (DETALHADO POR TIPO DE CART\303O)A 
+; 
+LH 
+pagesave restore
+
+(%%[ Page: 1 ]%%)  =
+%%PageTrailer
+
+%%Trailer
+%%DocumentNeededFonts: Courier-Bold
+%%+ Courier
+%%DocumentSuppliedFonts: 
+Pscript_Win_Driver_Incr dup /terminate get exec
+savelevel0 restore 
+%%Pages: 1
+(%%[ LastPage ]%%)  =
+%%EOF
+%-12345X@PJL EOJ
+%-12345X

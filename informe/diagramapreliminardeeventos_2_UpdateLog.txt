@@ -1,0 +1,73 @@
+The Shape Migration process recognized 15 shapes in
+the document as being out-of-date.  These shapes have
+been updated to their most current versions.
+
+The original document has been backed up and saved as:
+"e:\facu\tesis\informe\diagramapreliminardeeventos_2_2.vsd".
+
+Shape ID=11 of page ID=0 replaced with shape ID=97.
+	User.UMLObjectGUID has been updated to ""{962C08EF-22F2-4197-8315-1BD8B4597643}"".
+	Successfully reconnected 2 existing shapes to this new shape.
+	
+Shape ID=1 of page ID=0 replaced with shape ID=106.
+	User.UMLObjectGUID has been updated to ""{D9210F24-CB27-495E-BCC9-EBC776EC3EF6}"".
+	Successfully reconnected 3 existing shapes to this new shape.
+	
+Shape ID=31 of page ID=0 replaced with shape ID=115.
+	User.UMLObjectGUID has been updated to ""{2C98350E-AB9F-4416-A31C-BE677D91B03F}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=29 of page ID=0 replaced with shape ID=117.
+	User.UMLObjectGUID has been updated to ""{E6CA1B09-662A-4413-96A0-5C70CC58BC2F}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=20 of page ID=0 replaced with shape ID=119.
+	User.UMLObjectGUID has been updated to ""{804ADCB2-8372-4A41-9466-7856ACA8E131}"".
+	User.UMLError has been updated to "1".
+	Successfully reconnected 3 existing shapes to this new shape.
+	
+Shape ID=47 (1) of page ID=0 replaced with shape ID=128.
+	User.UMLObjectGUID has been updated to ""{86832378-C113-458B-8DF5-257F1B0BA931}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=42 (1) of page ID=0 replaced with shape ID=133.
+	User.UMLObjectGUID has been updated to ""{DF152759-E348-4216-B887-978DF819BF2B}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=33 of page ID=0 replaced with shape ID=138.
+	User.UMLObjectGUID has been updated to ""{562A8166-75C2-411A-91DA-43463DED6C33}"".
+	User.UMLError has been updated to "1".
+	Successfully reconnected 4 existing shapes to this new shape.
+	
+Shape ID=61 (1) of page ID=0 replaced with shape ID=147.
+	User.UMLObjectGUID has been updated to ""{DB9B772C-7ADC-46A6-8639-2C95575AD2C7}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=52 of page ID=0 replaced with shape ID=152.
+	User.UMLObjectGUID has been updated to ""{199D3559-29BA-4F5E-BE96-7BED75F993A1}"".
+	Successfully reconnected 4 existing shapes to this new shape.
+	
+Shape ID=75 of page ID=0 replaced with shape ID=161.
+	User.UMLObjectGUID has been updated to ""{07502475-F0FE-4C86-A96D-5B556F7AE0C4}"".
+	Successfully reconnected 1 existing shapes to this new shape.
+	
+Shape ID=66 of page ID=0 replaced with shape ID=170.
+	User.UMLObjectGUID has been updated to ""{EF531216-E69F-4720-BDDC-0735074BD0BE}"".
+	Successfully reconnected 1 existing shapes to this new shape.
+	
+Shape ID=88 of page ID=0 replaced with shape ID=179.
+	User.UMLObjectGUID has been updated to ""{73D2EF4B-98BF-4ACE-A11D-4398AF9DC9A1}"".
+	
+Shape ID=86 of page ID=0 replaced with shape ID=188.
+	User.UMLObjectGUID has been updated to ""{E5C7C99E-142B-48E1-AC13-72EFB5618B24}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=84 of page ID=0 replaced with shape ID=190.
+	User.UMLObjectGUID has been updated to ""{C2B5FB2C-4C61-444B-B3EE-08BBEC539919}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+
+
+15 shapes updated (0 transformations, 15 replacements.)
+
+Shape Migration Complete - 0 error(s), 0 warning(s)

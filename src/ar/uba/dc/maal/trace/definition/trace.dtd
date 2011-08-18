@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT destination EMPTY>
+<!ATTLIST destination nodeRetreiverClassName NMTOKEN #REQUIRED>
+
+<!ELEMENT event (method)>
+<!ATTLIST event name NMTOKEN #REQUIRED>
+
+<!ELEMENT message (sender,receiver)>
+
+<!ELEMENT method EMPTY>
+<!ATTLIST method methodPatter NMTOKEN #REQUIRED>
+
+<!ELEMENT receiver (method,source)>
+<!ATTLIST receiver name CDATA #REQUIRED>
+
+<!ELEMENT sender (method,destination)>
+<!ATTLIST sender name CDATA #REQUIRED>
+
+<!ELEMENT source EMPTY>
+<!ATTLIST source nodeRetreiverClassName NMTOKEN #REQUIRED>
+
+<!ELEMENT trace (event*,message*)>
+
+
+

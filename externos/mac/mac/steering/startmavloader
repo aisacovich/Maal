@@ -1,0 +1,2 @@
+#java Console -width 350 -height 100 -airwidth 700 -airheight 700 -numMAVs 30 -gravity 1200 -distance 50 -friction 40 -fmax 1 -sleep 10
+java Loadclass 9000 -width 350 -height 100 -airwidth 700 -airheight 700 -numMAVs 30 -gravity 1200 -distance 50 -friction 40 -fmax 1 -sleep 10

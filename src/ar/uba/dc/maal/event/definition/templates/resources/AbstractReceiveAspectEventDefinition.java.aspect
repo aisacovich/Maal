@@ -1,0 +1,38 @@
+import org.apache.log4j.Logger;
+import ar.uba.dc.maal.event.ReceiveEvent;
+import ar.uba.dc.maal.trace.DefaultLocalEventRaiser;
+import ar.uba.dc.maal.net.Node;
+
+
+public abstract aspect AbstractReceiveAspectEventDefinition {
+
+	protected Logger log = Logger.getLogger("ar.uba.dc.maal.Event");
+	abstract pointcut event();
+	protected abstract String getMsg();
+	protected abstract Node getOwner();
+	protected abstract Node getNodeSender();
+
+	private ReceiveEvent getReceiveEvent(){
+		ReceiveEvent receiveEvt = new ReceiveEvent();
+		receiveEvt.setOwner(getOwner());
+		receiveEvt.setMessage(getMsg());
+		receiveEvt.setSource(getNodeSender());
+		return receiveEvt;
+	}
+	
+	private void raiseEvent(){
+		DefaultLocalEventRaiser evtRaiser = new DefaultLocalEventRaiser();
+		ReceiveEvent receiveEvent = getReceiveEvent(); 
+		log.info(receiveEvent);
+		evtRaiser.raiseEvent(receiveEvent);
+	}
+
+	before() : event() {
+		raiseEvent();
+	}
+
+	after() : event() {
+		raiseEvent();
+	}
+
+}

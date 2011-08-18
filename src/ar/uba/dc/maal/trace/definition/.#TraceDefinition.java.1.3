@@ -1,0 +1,203 @@
+package ar.uba.dc.maal.trace.definition;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.apache.commons.digester.Digester;
+import org.xml.sax.SAXException;
+
+import ar.uba.dc.maal.event.definition.EventDefinition;
+import ar.uba.dc.maal.event.definition.MessageDefinition;
+import ar.uba.dc.maal.event.definition.MethodDefinition;
+import ar.uba.dc.maal.event.definition.NodeRetreiverDefinition;
+import ar.uba.dc.maal.event.definition.ReceiveEventDefinition;
+import ar.uba.dc.maal.event.definition.SendEventDefinition;
+import ar.uba.dc.maal.event.definition.codeGenerator.AspectJCodeGenerator;
+
+/**
+ * Conjunto de Definiciones de evento y mensajes para un Sistema en particular
+ * 
+ * @author mcastellani
+ * @version $Id: TraceDefinition.java,v 1.3 2003/08/06 00:32:04 matias Exp $
+ * 
+ */
+public class TraceDefinition {
+
+	private Set messageDefinitions = new HashSet();
+	private Set eventDefinitions = new HashSet();
+	private AspectJCodeGenerator codeGenerator;
+
+	public TraceDefinition() throws IOException{
+		setCodeGenerator(new AspectJCodeGenerator());
+	}
+
+	public void addEventDefinition(EventDefinition messageEventDefinition){
+		getEventDefinitions().add(messageEventDefinition);
+	}
+
+	public void removeEventDefinition(EventDefinition messageEventDefinition){
+		getEventDefinitions().remove(messageEventDefinition);
+	}
+
+
+	public void addMessageDefinition(MessageDefinition messageEventDefinition){
+		getMessageDefinitions().add(messageEventDefinition);
+	}
+
+	public void removeMessageDefinition(MessageDefinition messageEventDefinition){
+		getMessageDefinitions().remove(messageEventDefinition);
+	}
+
+
+	/**
+	 * @return
+	 */
+	public Set getEventDefinitions() {
+		return eventDefinitions;
+	}
+
+	/**
+	 * @return
+	 */
+	public Set getMessageDefinitions() {
+		return messageDefinitions;
+	}
+
+	/**
+	 * @param set
+	 */
+	public void setEventDefinitions(Set set) {
+		eventDefinitions = set;
+	}
+
+	/**
+	 * @param set
+	 */
+	public void setMessageDefinitions(Set set) {
+		messageDefinitions = set;
+	}
+
+	private void generateMsgCode(AspectJCodeGenerator codeGenerator) throws IOException {
+		Iterator iter = getMessageDefinitions().iterator();
+		while (iter.hasNext()) {
+			codeGenerator.generateCode((MessageDefinition) iter.next());
+		}
+	}
+
+	private void generateEventCode(AspectJCodeGenerator codeGenerator) throws IOException {
+		Iterator iter = getEventDefinitions().iterator();
+		while (iter.hasNext()) {
+			codeGenerator.generateCode((EventDefinition) iter.next());
+		}
+	}
+
+
+	public void generateAspectJCode(String path, InputStream in) throws IOException {
+		parse(in);
+		AspectJCodeGenerator codeGenerator =  new AspectJCodeGenerator(path);
+		generateEventCode(codeGenerator);
+		generateMsgCode(codeGenerator);
+	}
+
+	private void parse(InputStream in) throws IOException{
+		Digester d = new Digester();
+
+		d.push(this);
+		
+		//Setea todas las propiedades del trace
+		d.addSetProperties("trace");
+
+		//Crea las definiciones de los eventos
+		d.addObjectCreate("trace/event", EventDefinition.class.getName());
+		d.addSetProperties("trace/event");
+		d.addSetNext("trace/event", "addEventDefinition", EventDefinition.class.getName());		
+
+		//Crea las definiciones de los métodos de los eventos
+		d.addObjectCreate("trace/event/method", MethodDefinition.class.getName());
+		d.addSetProperties("trace/event/method");
+		d.addSetNext("trace/event/method", "setMethodDefinition", MethodDefinition.class.getName());		
+
+		//Crea la definición del owner del evento
+		d.addObjectCreate("trace/event/owner", NodeRetreiverDefinition.class.getName());
+		d.addSetProperties("trace/event/owner");
+		d.addSetNext("trace/event/owner", "setNodeRetrieverDefinition", NodeRetreiverDefinition.class.getName());		
+
+		//********************************************************************************************
+		
+		//Crea las definiciones de los mensajes
+		d.addObjectCreate("trace/message", MessageDefinition.class.getName());
+		d.addSetProperties("trace/message");
+		d.addSetNext("trace/message", "addMessageDefinition", MessageDefinition.class.getName());		
+
+		//Agrega la definición del sender
+		d.addObjectCreate("trace/message/sender", SendEventDefinition.class.getName());
+		d.addSetProperties("trace/message/sender");
+		d.addSetNext("trace/message/sender", "setSendEventDefinition", SendEventDefinition.class.getName());		
+
+		//Crea las definiciones de los métodos de los eventos
+		d.addObjectCreate("trace/message/sender/method", MethodDefinition.class.getName());
+		d.addSetProperties("trace/message/sender/method");
+		d.addSetNext("trace/message/sender/method", "setMethodDefinition", MethodDefinition.class.getName());		
+
+		//Crea la definición del owner del evento de send
+		d.addObjectCreate("trace/message/sender/owner", NodeRetreiverDefinition.class.getName());
+		d.addSetProperties("trace/message/sender/owner");
+		d.addSetNext("trace/message/sender/owner", "setNodeRetrieverDefinition", NodeRetreiverDefinition.class.getName());		
+
+		//Agrega el destination
+		d.addObjectCreate("trace/message/sender/destination", NodeRetreiverDefinition.class.getName());
+		d.addSetProperties("trace/message/sender/destination");
+		d.addSetNext("trace/message/sender/destination", "setDestinationRetreiverDefinition", NodeRetreiverDefinition.class.getName());		
+
+
+		//Agrega la definición del receiver
+		d.addObjectCreate("trace/message/receiver", ReceiveEventDefinition.class.getName());
+		d.addSetProperties("trace/message/receiver");
+		d.addSetNext("trace/message/receiver", "setReceiveEventDefinition", ReceiveEventDefinition.class.getName());		
+
+		//Crea las definiciones de los métodos de los eventos
+		d.addObjectCreate("trace/message/receiver/method", MethodDefinition.class.getName());
+		d.addSetProperties("trace/message/receiver/method");
+		d.addSetNext("trace/message/receiver/method", "setMethodDefinition", MethodDefinition.class.getName());		
+
+		//Agrega el source
+		d.addObjectCreate("trace/message/receiver/source", NodeRetreiverDefinition.class.getName());
+		d.addSetProperties("trace/message/receiver/source");
+		d.addSetNext("trace/message/receiver/source", "setSourceRetreiverDefinition", NodeRetreiverDefinition.class.getName());		
+
+		//Crea la definición del owner del evento de send
+		d.addObjectCreate("trace/message/receiver/owner", NodeRetreiverDefinition.class.getName());
+		d.addSetProperties("trace/message/receiver/owner");
+		d.addSetNext("trace/message/receiver/owner", "setNodeRetrieverDefinition", NodeRetreiverDefinition.class.getName());		
+		
+
+		try {
+			d.parse(in);
+		}
+		catch (SAXException ex) {
+			throw new RuntimeException("error parseando", ex);
+		}
+	}
+	
+	public static void main(String[] args) {
+		try {
+			TraceDefinition trace = new TraceDefinition();
+			trace.generateAspectJCode("C:/maal/", TraceDefinition.class.getResourceAsStream("test/trace.xml"));
+			System.out.println(trace);
+		} catch (Exception e) {
+			e.printStackTrace();			
+		}
+	}
+
+	private void setCodeGenerator(AspectJCodeGenerator codeGenerator) {
+		this.codeGenerator = codeGenerator;
+	}
+
+	private AspectJCodeGenerator getCodeGenerator() {
+		return codeGenerator;
+	}
+
+}

@@ -1,0 +1,21 @@
+package @PACKAGE@;
+
+import ar.uba.dc.maal.net.Node;;
+
+public aspect @MSG@EventDefinition extends AbstractAspectEventDefinition{
+
+	pointcut event(): call(@METHOD@);
+
+	protected String getMsg(){
+		return "@MSG@";
+	}
+
+	protected Node getOwner(){
+		try{
+			return (Node) Class.forName("@OWNER@").newInstance();
+		} catch(Exception ex){
+			log.error(ex, ex); 
+			throw new RuntimeException(ex);
+		}
+	}
+}

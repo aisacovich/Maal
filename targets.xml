@@ -1,0 +1,299 @@
+
+        <!--
+
+	Las siguientes variables deben definirse externamente:
+		${root.path}
+		${basedir}
+		${ant.project.name}
+
+	Las siguientes variables pueden definirse al ejecutar Ant:
+		${project.version}
+		${fixCVS.path}
+		${halt.switch}
+
+	-->
+
+	<description>
+Main parameters:
+
+	-Dproject.version=[string] (version de la aplicacion)
+	-DfixCVS.path=[path] (path desde donde comienza a aplicar el fix de CVS)
+	-Dhalt.switch=[on/off] (on : se detiene si hay errores al correr los test de JUnit)
+	</description>
+
+
+	<!-- Valores por default. -->
+
+	<property name="project.path" value="${basedir}"/>
+	<property name="project.name" value="${ant.project.name}"/>
+	<property name="project.version" value="undefined_version"/>
+	<property name="fixCVS.path" value="."/>
+	<property name="halt.switch" value="on"/>
+
+
+	<!-- Valores calculados. -->
+
+	<property name="_build" value="${project.path}/build"/>
+	<property name="_dist" value="${project.path}/dist"/>
+	<property name="_doc" value="${project.path}/doc"/>
+	<property name="_src" value="${project.path}/src"/>
+	<property name="_javadocs" value="${project.path}/doc/javadoc"/>
+
+
+	<!-- Valores para uso interno. -->
+
+	<property name="_test.build" value="test_build"/>
+	<property name="_test.report" value ="testReport"/>
+	<property name="_build.depcache" value="${project.name}-dependencies"/>
+	<property name="_test.build.depcache" value="${project.name}-test-dependencies"/>
+	<property name="_jvm.target" value="1.1"/>
+	<property name="_version.files" value="**/version.properties,**/version.txt"/>
+	<property name="_version.token" value="VERSION"/>
+
+	<!-- Se incluye ant-contrib para poder usar iteradores. -->
+	<property name="_contrib.jar" value="${root.path}/glue/ant-contrib-0.3.jar"/>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${_contrib.jar}"/>
+		</classpath>
+	</taskdef>
+	
+
+	<!-- Archivos de recursos -->
+
+	<patternset id="_resource.patternset" >
+		<exclude name="**/*.java"/>
+		<exclude name="**/*.bak"/>
+		<exclude name="**/*~*"/>
+		<exclude name="**/*.jbx"/>
+	</patternset>
+	
+
+	<!-- Path donde estan las bibliotecas. -->
+
+	<path id="_lib.path">
+		<fileset dir="${_dist}/lib" includes="**/*.jar"/>
+	</path>
+
+	<path id="_test.path">
+		<fileset dir="${_dist}/lib" includes="**/*.jar"/>
+		<fileset dir="${_dist}/test" includes="**/*.jar"/>
+	</path>
+
+	<!--
+	*****************
+	Protected targets
+	*****************
+	-->
+
+	<!-- Ejecuta en todos los subproyectos el mismo target. -->
+	<target name="_subproject">
+		<ant dir="${root.path}/${subproject.name}" target="${_target}" inheritAll="false">
+			<property name="project.version" value="${project.version}"/>
+		</ant>
+	</target>
+	
+	<!-- Toma jars generados por un subproyecto. --> 
+	<target name="_fetchjars">
+		<copy todir="${_dist}/lib">
+			<fileset dir="${root.path}/${subproject.name}/dist/lib"/>
+		</copy>
+		<copy todir="${_dist}/test">
+			<fileset dir="${root.path}/${subproject.name}/dist/lib"/>
+			<fileset dir="${root.path}/${subproject.name}/dist/test"/>
+		</copy>
+	</target>
+	
+	<!-- Ejecuta un target en todos los subprojects listados en la property subprojects. -->
+	<target name="_subprojects.fetchjars">
+		<foreach list="${subprojects}" target="_fetchjars" param="subproject.name"/>
+	</target>
+
+	<!-- Ejecuta un target en todos los subprojects listados en la property subprojects. -->
+	<target name="_subprojects" unless="build.nonRecursive">
+		<foreach list="${subprojects}" target="_subproject" param="subproject.name"/>
+	</target>
+
+	<!-- Prepara la compilacion. -->
+	<target name="_init">
+		<tstamp />
+		<mkdir dir="${_dist}/lib"/>
+	</target>
+	
+	<!-- Crea los directorios de dependency.cache. -->
+	<target name="_dependency.cache">
+		<mkdir dir="${_build.depcache}"/>
+		<mkdir dir="${_test.build.depcache}"/>
+	</target>
+	
+	<!-- Compila el proyecto usando el enviroment. -->
+	<target name="_compile" depends="_init, _dependency.cache, _subprojects.dist, _subprojects.fetchjars">
+		<mkdir dir="${_build}"/>
+		<depend srcdir="${_src}" destdir="${_build}"
+			cache="${_build.depcache}" closure="yes"/>
+		<javac srcdir="${_src}" destdir="${_build}" excludes="**/test/*" debug="on">
+			<classpath refid="_lib.path"/>
+		</javac>
+		<copy todir="${_build}" includeEmptyDirs="no">
+			<fileset dir="${_src}" excludes="**/test/*,**/uml/*,${_version.files}">
+				<patternset refid="_resource.patternset"/>
+			</fileset>
+		</copy>
+		<filter token="${_version.token}" value="${project.version}"/>
+		<copy todir="${_build}" filtering="true" overwrite="true" includeEmptyDirs="no">
+			<fileset dir="${_src}" includes="${_version.files}"/>
+		</copy>
+	</target>
+	
+	<!-- Compila los tests del proyecto. -->
+	<target name="_compiletest" depends="_compile">
+		<mkdir dir="${_test.build}"/>
+		<depend srcdir="${_src}" destdir="${_build}"
+			cache="${_test.build.depcache}" closure="yes"/>
+		
+		<javac srcdir="${_src}" destdir="${_test.build}" includes="**/test/*" debug="on">
+			<classpath>
+				<path refid="_test.path"/>
+				<pathelement location="${_build}"/>
+			</classpath>
+		</javac>
+		<copy todir="${_build}" includeEmptyDirs="no">
+			<fileset dir="${_src}" includes="**/test/*">
+				<patternset refid="_resource.patternset"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- Hace la compilacion de subproyectos. -->
+	<target name="_subprojects.dist">
+		<antcall target="_subprojects">
+			<param name="_target" value="dist"/>
+		</antcall>
+	</target>
+    
+	<!-- Hace la compilacion de tests de subproyectos. -->
+	<target name="_subprojects.test">
+		<antcall target="_subprojects">
+			<param name="_target" value="test"/>
+		</antcall>
+	</target>
+    
+	<!-- Genera un jar con el codigo ejecutable del proyecto -->
+	<target name="_buildjar" depends="_compile">
+		<mkdir dir="${_dist}/lib"/>
+		<jar jarfile="${_dist}/lib/${project.name}.jar" basedir="${_build}">
+			<manifest>
+				<attribute name="Implementation-Version" value="${project.version}"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- Genera un jar con todo el codigo fuente del proyecto. -->
+	<target name="_sourcesjar">
+		<mkdir dir="${_dist}/src"/>
+		<jar jarfile="${_dist}/src/${project.name}_src.jar" basedir="${_src}">
+			<manifest>
+				<attribute name="Implementation-Version" value="${project.version}"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- Genera un jar con los test. -->
+	<target name="_testjar" depends="_compiletest">
+		<mkdir dir="${_dist}/test"/>
+		<jar jarfile="${_dist}/test/${project.name}_test.jar" basedir="${_test.build}">
+			<manifest>
+				<attribute name="Implementation-Version" value="${project.version}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- Es true si el sistema operativo es Unix -->
+	<target name="_pretest">
+		<condition property="_os.family.unix">
+			<os family="unix"/>
+		</condition>
+	</target>
+
+	<!-- Corre los tests de unidad en un sistema no Unix. -->
+	<target name="_test.nounix" unless="_os.family.unix">
+		<mkdir dir="${_test.report}"/>
+		<junit printsummary="on" haltonfailure="${halt.switch}" fork="yes">
+			<classpath>
+				<path refid="_test.path"/>
+				<pathelement path="${java.class.path}"/>
+				<pathelement path="${_test.build}"/>
+				<pathelement path="${_build}"/>
+			</classpath>
+			<formatter type="plain" usefile="on"/>
+			<batchtest fork="yes" todir="${_test.report}">
+				<fileset dir="${_src}">
+					<include name="**/Test*.java"/>
+					<include name="**/*Test.java"/>
+					<exclude name="**/AllTests.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+	<!-- Corre los tests de unidad en un sistema Unix. -->
+	<target name="_test.unix" if="_os.family.unix">
+		<property name="_prefs.systemRoot" value="/tmp/.prefSystem"/>
+		<property name="_prefs.userRoot" value="/tmp/.prefUser"/>
+		<delete dir="${_prefs.systemRoot}" />		
+		<delete dir="${_prefs.userRoot}" />
+		<mkdir dir="${_test.report}"/>
+		<junit printsummary="on" haltonfailure="${halt.switch}" fork="yes">
+			<jvmarg value="-Djava.util.prefs.systemRoot=${_prefs.systemRoot}"/>
+			<jvmarg value="-Djava.util.prefs.userRoot=${_prefs.userRoot}"/>
+			<jvmarg value="-Djava.awt.headless=true"/>
+			<classpath>
+				<path refid="_test.path"/>
+				<pathelement path="${java.class.path}"/>
+				<pathelement path="${_test.build}"/>
+				<pathelement path="${_build}"/>
+			</classpath>
+			<formatter type="plain" usefile="on"/>
+			<batchtest fork="yes" todir="${_test.report}">
+				<fileset dir="${_src}">
+					<include name="**/Test*.java"/>
+					<include name="**/*Test.java"/>
+					<exclude name="**/AllTests.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+
+	<!-- 
+	**************
+	Public targets
+	**************
+	 -->
+
+	<target name="fixCVS" description="Arregla los archivos internos del cliente CVS.">
+                <replace dir="${fixCVS.path}" includes="**/CVS/Repository" token="/exports/cvs/SOURCE/" value="" defaultexcludes="no"/>
+	</target>
+
+	<target name="test" depends="_pretest, _subprojects.test, _test.unix, _test.nounix"/>
+
+	<target name="all" depends="clean, dist, test" description="Es equivalente a 'clean dist test'."/>
+
+	<target name="clean" description="Limpia codigo objeto, reportes de test y entregables.">
+		<delete dir="${_build}"/>
+		<delete dir="${_dist}"/>
+		<delete dir="${_test.build}"/>
+		<delete dir="${_test.report}"/>
+		<delete dir="${_build.depcache}"/>
+		<delete dir="${_test.build.depcache}"/>
+		<antcall target="_subprojects">
+			<param name="_target" value="clean"/>
+		</antcall>
+	</target>
+	
+	<target name="javadoc" description="Crea los javadocs del proyecto.">
+		<javadoc packagenames="*" sourcepath="${_src}" destdir="${_javadocs}" overview="${_src}/overview.html"/>
+	</target>
+
+	<target name="stdDist" depends="_buildjar, _sourcesjar, _testjar" description="Hace la compilacion standard y genera los jars."/>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+
+	<renderer renderedClass="ar.uba.dc.maal.trace.log4j.Log4jEvent" renderingClass="ar.uba.dc.maal.trace.log4j.MaalEventRenderer"/>
+	
+	<appender name="TESTAppender" class="ar.uba.dc.maal.trace.log4j.test.TestAppender">
+	</appender>
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %c{2}(%L) - %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="SocketAppender" class="org.apache.log4j.net.SocketAppender">
+		<param name="RemoteHost" value="localhost"/>
+		<param name="Port" value="5555"/>
+		<param name="LocationInfo" value="true"/>
+	</appender>
+
+	<logger name="SocketAppenderLogger" additivity="false">
+		<appender-ref ref="SocketAppender"/>
+	</logger>
+
+	<category name="ar.uba.dc.maal.trace.log4j.test">
+		<appender-ref ref="TESTAppender"/>
+  	</category>
+	
+	<root>
+		<priority value="debug"/>
+		<appender-ref ref="CONSOLE"/>
+	</root>
+</log4j:configuration>
